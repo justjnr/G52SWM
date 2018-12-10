@@ -2,4 +2,4 @@
 
 ## G52SWM Coursework 2
 
-Repository for Coursework 2
+Repository for the Pacman game with refactored code & repackaged classes & additional enhancememts and improvements.
