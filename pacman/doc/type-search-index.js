@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"Ng_Justin_4303735","l":"BarObstacle"},{"p":"Ng_Justin_4303735","l":"Controller"},{"p":"Ng_Justin_4303735","l":"Cookie"},{"p":"Ng_Justin_4303735","l":"GameManager"},{"p":"Ng_Justin_4303735","l":"Ghost"},{"p":"Ng_Justin_4303735","l":"Main"},{"p":"Ng_Justin_4303735","l":"Maze"},{"p":"Ng_Justin_4303735","l":"Pacman"},{"p":"Ng_Justin_4303735","l":"Score"}]
