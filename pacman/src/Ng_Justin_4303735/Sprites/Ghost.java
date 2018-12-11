@@ -5,7 +5,9 @@ package Ng_Justin_4303735.Sprites;
 import Ng_Justin_4303735.Managers.GameManager;
 import Ng_Justin_4303735.Board.Maze;
 import javafx.animation.AnimationTimer;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
@@ -19,6 +21,15 @@ public class Ghost extends Rectangle implements Runnable {
     AnimationTimer animation;
     int timesWalked;
 
+    /** Load pacman sprite files
+     *
+     */
+    Image ghostGreen = new Image("file:resc/img/ghost1.png",false);
+    Image ghostBlue = new Image("file:resc/img/ghost2.png",false);
+    Image ghostPink = new Image("file:resc/img/ghost3.png",false);
+    Image ghostYellow = new Image("file:resc/img/ghost4.png",false);
+    Image ghostPurple = new Image("file:resc/img/ghost5.png",false);
+
     public Ghost(double x, double y, Color color, Maze maze, GameManager gameManager) {
         this.setX(x);
         this.setY(y);
@@ -30,6 +41,21 @@ public class Ghost extends Rectangle implements Runnable {
         this.timesWalked = 0;
         this.direction = "down";
         this.createAnimation();
+        if (color == Color.GREEN){
+            this.setFill(new ImagePattern(ghostGreen));
+        }
+        if (color == Color.DEEPPINK){
+            this.setFill(new ImagePattern(ghostPink));
+        }
+        if (color == Color.LIGHTSKYBLUE){
+            this.setFill(new ImagePattern(ghostBlue));
+        }
+        if (color == Color.RED){
+            this.setFill(new ImagePattern(ghostPurple));
+        }
+        if (color == Color.ORANGE){
+            this.setFill(new ImagePattern(ghostYellow));
+        }
     }
 
     private String getRandomDirection(String exclude1, String exclude2) {

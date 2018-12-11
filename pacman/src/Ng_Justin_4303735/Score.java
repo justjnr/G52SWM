@@ -16,11 +16,11 @@ public class Score {
     public Score(Group root) {
         this.score = new Text(BarObstacle.THICKNESS * 4, BarObstacle.THICKNESS * 28, "Score: 0");
         this.lifes = new Text(BarObstacle.THICKNESS * 20, BarObstacle.THICKNESS * 28,"Lifes: 3");
-        score.setFill(Color.MAGENTA);
-        score.setFont(Font.font("Arial", 30));
+        score.setFill(Color.WHITE);
+        score.setFont(Font.font("Arial", 20));
 
-        lifes.setFill(Color.MAROON);
-        lifes.setFont(Font.font("Arial", 30));
+        lifes.setFill(Color.WHITE);
+        lifes.setFont(Font.font("Arial", 20));
 
         root.getChildren().add(score);
         root.getChildren().add(lifes);

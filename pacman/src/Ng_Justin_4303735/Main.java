@@ -19,20 +19,25 @@ public class Main extends Application {
      * @param theStage - The Stage to be used for the game
      */
     Group root = new Group();
-    Group menu = new Group();
+    //Group menu = new Group();
     Scene gameScene = new Scene(root);
-    Scene menuScene = new Scene(menu);
+    //Scene menuScene = new Scene(menu);
     GameManager gameManager = new GameManager(root);
     Canvas canvas = new Canvas(1225, 600 );
+    //Stage stage;
 
     @Override
     public void start(Stage theStage) throws Exception{
 //      Parent root = FXMLLoader.load(getClass().getResource("pacman.fxml"));
         init(theStage);
+        //stage = theStage;
         initEventHandlers(gameScene, gameManager);
         render(theStage);
     }
 
+    /**
+     * Constructor
+     */
     public void init(Stage stage){
         stage.setTitle("Pacman");
         stage.setScene(gameScene);
