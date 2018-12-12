@@ -24,11 +24,30 @@ public class Ghost extends Rectangle implements Runnable {
     /** Load pacman sprite files
      *
      */
-    Image ghostGreen = new Image("file:resc/img/ghost1.png",false);
-    Image ghostBlue = new Image("file:resc/img/ghost2.png",false);
-    Image ghostPink = new Image("file:resc/img/ghost3.png",false);
-    Image ghostYellow = new Image("file:resc/img/ghost4.png",false);
-    Image ghostPurple = new Image("file:resc/img/ghost5.png",false);
+    Image ghostGreenRight = new Image("file:resc/img/ghost1_right.png",false);
+    Image ghostGreenLeft = new Image("file:resc/img/ghost1_left.png",false);
+    Image ghostGreenUp = new Image("file:resc/img/ghost1_up.png",false);
+    Image ghostGreenDown = new Image("file:resc/img/ghost1_down.png",false);
+
+    Image ghostBlueRight = new Image("file:resc/img/ghost2_right.png",false);
+    Image ghostBlueLeft = new Image("file:resc/img/ghost2_left.png",false);
+    Image ghostBlueUp = new Image("file:resc/img/ghost2_up.png",false);
+    Image ghostBlueDown = new Image("file:resc/img/ghost2_down.png",false);
+
+    Image ghostPinkRight = new Image("file:resc/img/ghost3_right.png",false);
+    Image ghostPinkLeft = new Image("file:resc/img/ghost3_left.png",false);
+    Image ghostPinkUp = new Image("file:resc/img/ghost3_up.png",false);
+    Image ghostPinkDown = new Image("file:resc/img/ghost3_down.png",false);
+
+    Image ghostYellowRight = new Image("file:resc/img/ghost4_right.png",false);
+    Image ghostYellowLeft = new Image("file:resc/img/ghost4_left.png",false);
+    Image ghostYellowUp = new Image("file:resc/img/ghost4_up.png",false);
+    Image ghostYellowDown = new Image("file:resc/img/ghost4_down.png",false);
+
+    Image ghostPurpleRight = new Image("file:resc/img/ghost5_right.png",false);
+    Image ghostPurpleLeft = new Image("file:resc/img/ghost5_left.png",false);
+    Image ghostPurpleUp = new Image("file:resc/img/ghost5_up.png",false);
+    Image ghostPurpleDown = new Image("file:resc/img/ghost5_down.png",false);
 
     public Ghost(double x, double y, Color color, Maze maze, GameManager gameManager) {
         this.setX(x);
@@ -40,21 +59,21 @@ public class Ghost extends Rectangle implements Runnable {
         this.setFill(color);
         this.timesWalked = 0;
         this.direction = "down";
-        this.createAnimation();
+        this.createAnimation(color, this);
         if (color == Color.GREEN){
-            this.setFill(new ImagePattern(ghostGreen));
+            this.setFill(new ImagePattern(ghostGreenUp));
         }
         if (color == Color.DEEPPINK){
-            this.setFill(new ImagePattern(ghostPink));
+            this.setFill(new ImagePattern(ghostPinkUp));
         }
         if (color == Color.LIGHTSKYBLUE){
-            this.setFill(new ImagePattern(ghostBlue));
+            this.setFill(new ImagePattern(ghostBlueRight));
         }
         if (color == Color.RED){
-            this.setFill(new ImagePattern(ghostPurple));
+            this.setFill(new ImagePattern(ghostPurpleRight));
         }
         if (color == Color.ORANGE){
-            this.setFill(new ImagePattern(ghostYellow));
+            this.setFill(new ImagePattern(ghostYellowRight));
         }
     }
 
@@ -94,6 +113,7 @@ public class Ghost extends Rectangle implements Runnable {
                 if (!maze.hasObstacle(leftEdge, rightEdge, bottomEdge - 1, bottomEdge)) {
                     this.direction = direction;
                 }
+
                 break;
             case "up":
                 leftEdge = getX() - 10;
@@ -182,7 +202,7 @@ public class Ghost extends Rectangle implements Runnable {
     /**
      * Creates an animation of the ghost
      */
-    public void createAnimation() {
+    public void createAnimation(Color color, Ghost ghost) {
 
         this.animation = new AnimationTimer()
         {
@@ -203,6 +223,7 @@ public class Ghost extends Rectangle implements Runnable {
                             checkIftheresPathToGo(getRandomDirection("left", "right"));
                             timesWalked = 0;
                         }
+                        changeGhostImage("left", color, ghost);
                         break;
                     case "right":
                         moveUntilYouCant("right", "up", leftEdge, topEdge, rightEdge, bottomEdge, padding);
@@ -210,6 +231,7 @@ public class Ghost extends Rectangle implements Runnable {
                             checkIftheresPathToGo(getRandomDirection("left", "right"));
                              timesWalked = 0;
                         }
+                        changeGhostImage("right", color, ghost);
                         break;
                     case "up":
                         moveUntilYouCant("up", "left", leftEdge, topEdge, rightEdge, bottomEdge, padding);
@@ -217,6 +239,7 @@ public class Ghost extends Rectangle implements Runnable {
                             checkIftheresPathToGo(getRandomDirection("up", "down"));
                             timesWalked = 0;
                         }
+                        changeGhostImage("up", color, ghost);
                         break;
                     case "down":
                         moveUntilYouCant("down", "right", leftEdge, topEdge, rightEdge, bottomEdge, padding);
@@ -224,12 +247,83 @@ public class Ghost extends Rectangle implements Runnable {
                             checkIftheresPathToGo(getRandomDirection("up", "down"));
                             timesWalked = 0;
                         }
+                        changeGhostImage("down", color, ghost);
                         break;
                 }
             }
         };
     }
 
+    public void changeGhostImage(String direction, Color color, Ghost ghost){
+        if (direction == "left"){
+            if (color == Color.GREEN){
+                ghost.setFill(new ImagePattern(ghostGreenLeft));
+            }
+            if (color == Color.DEEPPINK){
+                ghost.setFill(new ImagePattern(ghostPinkLeft));
+            }
+            if (color == Color.LIGHTSKYBLUE){
+                ghost.setFill(new ImagePattern(ghostBlueLeft));
+            }
+            if (color == Color.RED){
+                ghost.setFill(new ImagePattern(ghostPurpleLeft));
+            }
+            if (color == Color.ORANGE){
+                ghost.setFill(new ImagePattern(ghostYellowLeft));
+            }
+        }
+        if (direction == "right"){
+            if (color == Color.GREEN){
+                ghost.setFill(new ImagePattern(ghostGreenRight));
+            }
+            if (color == Color.DEEPPINK){
+                ghost.setFill(new ImagePattern(ghostPinkRight));
+            }
+            if (color == Color.LIGHTSKYBLUE){
+                ghost.setFill(new ImagePattern(ghostBlueRight));
+            }
+            if (color == Color.RED){
+                ghost.setFill(new ImagePattern(ghostPurpleRight));
+            }
+            if (color == Color.ORANGE){
+                ghost.setFill(new ImagePattern(ghostYellowRight));
+            }
+        }
+        if (direction == "up"){
+            if (color == Color.GREEN){
+                ghost.setFill(new ImagePattern(ghostGreenUp));
+            }
+            if (color == Color.DEEPPINK){
+                ghost.setFill(new ImagePattern(ghostPinkUp));
+            }
+            if (color == Color.LIGHTSKYBLUE){
+                ghost.setFill(new ImagePattern(ghostBlueUp));
+            }
+            if (color == Color.RED){
+                ghost.setFill(new ImagePattern(ghostPurpleUp));
+            }
+            if (color == Color.ORANGE){
+                ghost.setFill(new ImagePattern(ghostYellowUp));
+            }
+        }
+        if (direction == "down"){
+            if (color == Color.GREEN){
+                ghost.setFill(new ImagePattern(ghostGreenDown));
+            }
+            if (color == Color.DEEPPINK){
+                ghost.setFill(new ImagePattern(ghostPinkDown));
+            }
+            if (color == Color.LIGHTSKYBLUE){
+                ghost.setFill(new ImagePattern(ghostBlueDown));
+            }
+            if (color == Color.RED){
+                ghost.setFill(new ImagePattern(ghostPurpleDown));
+            }
+            if (color == Color.ORANGE){
+                ghost.setFill(new ImagePattern(ghostYellowDown));
+            }
+        }
+    }
     @Override
     public void run() {
         this.animation.start();
