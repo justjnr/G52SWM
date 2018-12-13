@@ -21,7 +21,7 @@ public class Ghost extends Rectangle implements Runnable {
     AnimationTimer animation;
     int timesWalked;
 
-    /** Load pacman sprite files
+    /** Load ghost sprite files
      *
      */
     Image ghostGreenRight = new Image("file:resc/img/ghost1_right.png",false);

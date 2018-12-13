@@ -1,7 +1,5 @@
 package Ng_Justin_4303735.Managers;
 
-
-
 import Ng_Justin_4303735.Board.BarObstacle;
 import Ng_Justin_4303735.Board.Maze;
 import Ng_Justin_4303735.Score;
@@ -140,11 +138,11 @@ public class GameManager {
      * Generates the ghosts for the pacman!
      */
     public void generateGhosts() {
-        this.ghosts.add(new Ghost(18.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
-        this.ghosts.add(new Ghost(22.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));
-        this.ghosts.add(new Ghost(28.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.RED, maze, this));
-        this.ghosts.add(new Ghost(28.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.ORANGE, maze, this));
-        this.ghosts.add(new Ghost(28.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.GREEN, maze, this));
+        this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
+        this.ghosts.add(new Ghost(23.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));
+        this.ghosts.add(new Ghost(27.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.RED, maze, this));
+        this.ghosts.add(new Ghost(21.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.ORANGE, maze, this));
+        this.ghosts.add(new Ghost(25.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.GREEN, maze, this));
     }
 
     /**
@@ -291,6 +289,8 @@ public class GameManager {
      */
     public void checkGhostCoalition() {
         collisionDetect.checkGhostCoalition(pacman, ghosts, this);
+        collisionDetect.checkPacmanOutsideMap(pacman, this);
+        collisionDetect.checkGhostOutsideMap(ghosts, this);
     }
 
 }
