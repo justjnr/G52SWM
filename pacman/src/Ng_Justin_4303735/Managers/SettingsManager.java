@@ -161,6 +161,7 @@ public class SettingsManager {
         returnButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             stage.setTitle("Pacman");
             stage.setScene(menuScene);
+            //System.out.print(bgCButton.getText());
         });
 
         difficultyButton.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(difficultyButton, scene));

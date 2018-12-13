@@ -31,7 +31,7 @@ public class MenuManager {
     /**
      * Initialise the menu scene
      */
-    public MenuManager(Stage stage, Group menuGroup, Scene menuScene, Scene settingsScene, Font menuFont, Canvas canvas, SettingsManager settingsManager, StartManager startManager, Scene gameScene, Group gameGroup){
+    public MenuManager(Stage stage, Group menuGroup, Scene menuScene, Scene settingsScene, Font menuFont, Canvas canvas, SettingsManager settingsManager, StartManager startManager, Scene gameScene, Group gameGroup, HighscoreManager highscoreManager, Scene highscoreScene){
         stage.setTitle("Pacman");
         stage.setScene(menuScene);
         menuScene.setFill(Color.BLACK);
@@ -78,7 +78,7 @@ public class MenuManager {
         menuGroup.getChildren().add(imageBox);
         menuGroup.getChildren().add(buttonBox);
 
-        initEventHandlers(menuScene, settingsScene, stage, settingsManager, startManager, gameScene, gameGroup);
+        initEventHandlers(menuScene, settingsScene, stage, settingsManager, startManager, gameScene, gameGroup, highscoreManager, highscoreScene);
     }
 
     /**
@@ -88,7 +88,7 @@ public class MenuManager {
      * @param scene
      * @param stage
      */
-    public void initEventHandlers(Scene scene, Scene settingsScene, Stage stage, SettingsManager settingsManager, StartManager startManager, Scene gameScene, Group gameGroup){
+    public void initEventHandlers(Scene scene, Scene settingsScene, Stage stage, SettingsManager settingsManager, StartManager startManager, Scene gameScene, Group gameGroup, HighscoreManager highscoreManager, Scene highscoreScene){
         stage.widthProperty().addListener((obs, oldVal, newVal) -> {
             if (oldVal != newVal){
                 buttonBox.setMinSize(scene.getWidth(), 0);
@@ -104,27 +104,27 @@ public class MenuManager {
 
         start.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(start, scene));
         start.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(start, scene));
-
         start.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             startManager.initView(stage, gameScene, gameGroup, settingsManager);
         });
 
         exit.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(exit, scene));
         exit.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(exit, scene));
-
         exit.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             stage.close();
         });
 
         settings.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(settings, scene));
         settings.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(settings, scene));
-
         settings.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             settingsManager.initView(stage, settingsScene);
         });
 
         highScore.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(highScore, scene));
         highScore.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(highScore, scene));
+        highScore.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            highscoreManager.initView(stage, highscoreScene);
+        });
     }
 
     public void onMouseEnterButton(Button button, Scene scene){

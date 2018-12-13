@@ -20,12 +20,17 @@ public class ViewManager {
     Group settingsGroup = new Group();
     Scene settingsScene = new Scene(settingsGroup);
 
+    Group highscoreGroup = new Group();
+    Scene highscoreScene = new Scene(highscoreGroup);
+
     Canvas canvas = new Canvas(1280, 720);
     SettingsManager settingsManager;
     StartManager startManager;
+    HighscoreManager highscoreManager;
 
     public ViewManager(Stage stage){
         settingsInit(stage);
+        highscoreInit(stage);
         startInit(stage);
         menuInit(stage);
     }
@@ -33,7 +38,7 @@ public class ViewManager {
      * Initialise the menu scene
      */
     public void menuInit(Stage stage){
-        new MenuManager(stage, menuGroup, menuScene, settingsScene, menuFont, canvas, settingsManager, startManager, gameScene, gameGroup);
+        new MenuManager(stage, menuGroup, menuScene, settingsScene, menuFont, canvas, settingsManager, startManager, gameScene, gameGroup, highscoreManager, highscoreScene);
         stage.sizeToScene();
         stage.show();
         stage.setMinWidth(stage.getWidth());
@@ -41,10 +46,14 @@ public class ViewManager {
     }
 
     public void startInit(Stage stage){
-        startManager = new StartManager(stage, gameScene, gameGroup, canvas);
+        startManager = new StartManager(stage, gameScene, gameGroup, canvas, settingsManager);
     }
 
     public void settingsInit(Stage stage){
         settingsManager = new SettingsManager(stage, settingsScene, menuScene, settingsGroup, canvas, titleFont, menuFont);
+    }
+
+    public void highscoreInit(Stage stage){
+        highscoreManager = new HighscoreManager(stage, highscoreScene, menuScene, highscoreGroup, canvas, titleFont, menuFont);
     }
 }

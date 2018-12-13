@@ -18,8 +18,8 @@ public class StartManager {
      * @param group
      * @param canvas
      */
-    public StartManager(Stage stage, Scene scene, Group group, Canvas canvas){
-        gameInit(stage, scene, group, canvas);
+    public StartManager(Stage stage, Scene scene, Group group, Canvas canvas, SettingsManager settingsManager){
+        gameInit(stage, scene, group, canvas, settingsManager);
     }
     /**
      * Initialise the game scene
@@ -27,8 +27,7 @@ public class StartManager {
      *
      * @param stage - passes the stage in as a parameter
      */
-    public void gameInit(Stage stage, Scene scene, Group group, Canvas canvas){
-        scene.setFill(Color.BLACK);
+    public void gameInit(Stage stage, Scene scene, Group group, Canvas canvas, SettingsManager settingsManager){
         group.getChildren().add(canvas);
     }
 
@@ -43,6 +42,11 @@ public class StartManager {
         stage.setMinHeight(stage.getHeight());
         stage.setMaxWidth(stage.getWidth());
         stage.setMaxHeight(stage.getHeight());
+
+        String c = settingsManager.getbgCSetting();
+        Color colourSetting = Color.web(c);
+        gameScene.setFill(colourSetting);
+        System.out.print(colourSetting);
 
         GameManager gameManager = new GameManager(group, settingsManager);
         gameManager.drawBoard();

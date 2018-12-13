@@ -15,6 +15,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -98,6 +102,19 @@ public class GameManager {
         root.getChildren().remove(this.scoreBoard.score);
         root.getChildren().remove(this.scoreBoard.lifes);
         root.getChildren().add(endGame);
+
+        outHighscore();
+    }
+
+    public void outHighscore(){
+        try(FileWriter fWriter = new FileWriter("highscores.txt", true);
+            BufferedWriter bWriter = new BufferedWriter(fWriter);
+            PrintWriter pWriter = new PrintWriter(bWriter))
+        {
+            pWriter.println(score);
+        } catch (IOException e) {
+            System.out.print(e);
+        }
     }
 
     /**
