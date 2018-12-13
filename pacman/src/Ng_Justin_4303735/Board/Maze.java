@@ -1,7 +1,5 @@
 package Ng_Justin_4303735.Board;
 
-
-
 import Ng_Justin_4303735.Managers.SettingsManager;
 import javafx.scene.Group;
 
@@ -68,9 +66,13 @@ public class Maze {
         // left
         this.obstacles.add(new BarObstacle(0, 0, "vertical", 11, settingsManager));
         this.obstacles.add(new BarObstacle(0, 350, "vertical", 10, settingsManager));
+        this.obstacles.add(new BarObstacle(-25, 250, "horizontal", 2, settingsManager));
+        this.obstacles.add(new BarObstacle(-25, 350, "horizontal", 2, settingsManager));
         // right
         this.obstacles.add(new BarObstacle(1225 - BarObstacle.THICKNESS, 0, "vertical", 11, settingsManager));
         this.obstacles.add(new BarObstacle(1225 - BarObstacle.THICKNESS, 350, "vertical", 11, settingsManager));
+        this.obstacles.add(new BarObstacle(1225, 250, "horizontal", 2, settingsManager));
+        this.obstacles.add(new BarObstacle(1225, 350, "horizontal", 2, settingsManager));
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~ Islands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // obsTopLeft

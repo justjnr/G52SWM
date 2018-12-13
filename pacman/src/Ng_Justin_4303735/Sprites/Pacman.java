@@ -1,7 +1,5 @@
 package Ng_Justin_4303735.Sprites;
 
-
-
 import Ng_Justin_4303735.Managers.GameManager;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;

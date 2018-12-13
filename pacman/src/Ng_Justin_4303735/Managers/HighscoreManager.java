@@ -15,13 +15,21 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.stream.Stream;
+
 public class HighscoreManager {
     private Label highscoresLabel = new Label("HIGHSCORES");
 
     private VBox highscoresBox = new VBox();
 
     private Button returnButton = new Button("RETURN");
-
+    private Font menuFontTemp;
+    private int maxHighscores;
     /**
      *
      * @param stage
@@ -32,6 +40,7 @@ public class HighscoreManager {
      * @param menuFont
      */
     public HighscoreManager(Stage stage, Scene highscoreScene, Scene menuScene, Group highscoreGroup, Canvas canvas, Font titleFont, Font menuFont){
+        menuFontTemp = menuFont;
         initHighscore(stage, highscoreScene, menuScene, highscoreGroup, canvas, menuFont, titleFont);
     }
 
@@ -47,7 +56,10 @@ public class HighscoreManager {
         returnButton.setStyle("-fx-background-color: Transparent");
 
         highscoresBox.getChildren().add(highscoresLabel);
+        maxHighscores = 0;
+        getHighscores(menuFontTemp);
         highscoresBox.getChildren().add(returnButton);
+        //highscoresBox.setMaxHeight(500);
         highscoresBox.setAlignment(Pos.CENTER);
 
         group.getChildren().add(canvas);
@@ -108,5 +120,32 @@ public class HighscoreManager {
         button.setScaleX(1);
         button.setScaleY(1);
         scene.setCursor(Cursor.DEFAULT);
+    }
+
+    public void getHighscores(Font titleFont){
+        //for each line in text file, create HBox with pair of labels
+        //make sure VBox containing can scroll if height greater than stage
+        Path highscoreFile = Paths.get("highscores.txt");
+
+        try (Stream<String> highscoreFilelines = Files.lines(highscoreFile)) {
+            highscoreFilelines.sorted(Comparator.reverseOrder()).forEachOrdered(line -> this.generateHighscores(line, titleFont));
+        } catch (IOException e) {
+            System.out.print(e);
+        }
+    }
+
+    public void generateHighscores(String line, Font titleFont){
+        if (maxHighscores < 5) {
+            System.out.println(line);
+            Label label = new Label(line);
+
+            label.setTextFill(Color.WHITE);
+            label.setFont(titleFont);
+            label.setTextAlignment(TextAlignment.CENTER);
+            label.setPadding(new Insets(0, 0, 20, 0));
+
+            highscoresBox.getChildren().add(label);
+            maxHighscores++;
+        }
     }
 }

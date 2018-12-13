@@ -131,7 +131,7 @@ public class CollisionDetect {
                     cookie.hide();
                 }
             }
-            gameManager.getScoreBoard().score.setText("Score: " + gameManager.getScore());
+            gameManager.getScoreBoard().scoreLabel.setText("Score: " + gameManager.getScore());
             if (gameManager.getCookiesEaten() == gameManager.getCookieSet().size()) {
                 gameManager.endGame();
             }

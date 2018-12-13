@@ -126,7 +126,6 @@ public class BoardManager {
             }
         }
         root.getChildren().add(pacman);
-        gameManager.generateGhosts();
         root.getChildren().addAll(ghosts);
         gameManager.createNewScore();
     }

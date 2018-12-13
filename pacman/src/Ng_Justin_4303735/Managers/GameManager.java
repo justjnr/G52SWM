@@ -40,13 +40,15 @@ public class GameManager {
 
     CollisionDetect collisionDetect = new CollisionDetect();
     BoardManager boardManager = new BoardManager();
+    SettingsManager settingsManagerTemp;
 
     /**
      * Constructor
      */
     public GameManager(Group root, SettingsManager settingsManager) {
+        settingsManagerTemp = settingsManager;
         this.root = root;
-        this.maze = new Maze(settingsManager);
+        this.maze = new Maze(settingsManagerTemp);
         this.pacman = new Pacman(2.5 * BarObstacle.THICKNESS, 2.5 * BarObstacle.THICKNESS);
         this.cookieSet = new HashSet<>();
         this.ghosts = new HashSet<>();
@@ -57,6 +59,7 @@ public class GameManager {
         this.lifes = 3;
         this.score = 0;
         this.cookiesEaten = 0;
+        generateGhosts(settingsManagerTemp);
     }
 
     /**
@@ -73,9 +76,11 @@ public class GameManager {
         this.pacman.setCenterX(2.5 * BarObstacle.THICKNESS);
         this.pacman.setCenterY(2.5 * BarObstacle.THICKNESS);
         lifes--;
-        score -= 10;
-        this.scoreBoard.lifes.setText("Lifes: " + this.lifes);
-        this.scoreBoard.score.setText("Score: " + this.score);
+        if (score >= 10){
+            score -= 10;
+        }
+        this.scoreBoard.lifesLabel.setText("Lifes: " + this.lifes);
+        this.scoreBoard.scoreLabel.setText("Score: " + this.score);
         if (lifes == 0) {
             this.endGame();
         }
@@ -99,8 +104,8 @@ public class GameManager {
         endGame.setY(BarObstacle.THICKNESS * 28);
         endGame.setFont(Font.font("Arial", 40));
         endGame.setFill(Color.ROYALBLUE);
-        root.getChildren().remove(this.scoreBoard.score);
-        root.getChildren().remove(this.scoreBoard.lifes);
+        root.getChildren().remove(this.scoreBoard.scoreLabel);
+        root.getChildren().remove(this.scoreBoard.lifesLabel);
         root.getChildren().add(endGame);
 
         outHighscore();
@@ -111,7 +116,8 @@ public class GameManager {
             BufferedWriter bWriter = new BufferedWriter(fWriter);
             PrintWriter pWriter = new PrintWriter(bWriter))
         {
-            pWriter.println(score);
+            pWriter.println(score + "     " + settingsManagerTemp.getDifficultySettings());
+
         } catch (IOException e) {
             System.out.print(e);
         }
@@ -155,12 +161,39 @@ public class GameManager {
     /**
      * Generates the ghosts for the pacman!
      */
-    public void generateGhosts() {
-        this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
-        this.ghosts.add(new Ghost(23.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));
-        this.ghosts.add(new Ghost(27.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.RED, maze, this));
-        this.ghosts.add(new Ghost(21.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.ORANGE, maze, this));
-        this.ghosts.add(new Ghost(25.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.GREEN, maze, this));
+    public void generateGhosts(SettingsManager settingsManager) {
+        if (settingsManager.getDifficultySettings() == "NORMAL"){
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
+            this.ghosts.add(new Ghost(23.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));
+            this.ghosts.add(new Ghost(27.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.RED, maze, this));
+            this.ghosts.add(new Ghost(21.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.ORANGE, maze, this));
+            this.ghosts.add(new Ghost(25.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.GREEN, maze, this));
+        }
+        if (settingsManager.getDifficultySettings() == "EASY"){
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
+            this.ghosts.add(new Ghost(23.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));
+            this.ghosts.add(new Ghost(27.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.RED, maze, this));
+        }
+        if (settingsManager.getDifficultySettings() == "HARD"){
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
+            this.ghosts.add(new Ghost(23.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));
+            this.ghosts.add(new Ghost(27.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.RED, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.ORANGE, maze, this));
+            this.ghosts.add(new Ghost(23.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.GREEN, maze, this));
+            this.ghosts.add(new Ghost(17.5 * BarObstacle.THICKNESS, 9.5 * BarObstacle.THICKNESS, Color.ORANGE, maze, this));
+        }
+        if (settingsManager.getDifficultySettings() == "WTF"){
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.RED, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.ORANGE, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.GREEN, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.RED, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.ORANGE, maze, this));
+            this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.GREEN, maze, this));
+        }
     }
 
     /**
@@ -189,13 +222,14 @@ public class GameManager {
         {
             public void handle(long currentNanoTime)
             {
+                checkSpriteOutsideMap();
                 switch (direction) {
                     case "left":
                         if (!maze.isTouching(pacman.getCenterX() - pacman.getRadius(), pacman.getCenterY(), 15)) {
                             pacman.setCenterX(pacman.getCenterX() - step);
                             checkCookieCoalition(pacman, "x");
                             checkGhostCoalition();
-                            checkSpriteOutsideMap();
+
                             pacman.setFill(new ImagePattern(pacman.pacmanLeft));
                         }
                         break;
@@ -204,7 +238,6 @@ public class GameManager {
                             pacman.setCenterX(pacman.getCenterX() + step);
                             checkCookieCoalition(pacman, "x");
                             checkGhostCoalition();
-                            checkSpriteOutsideMap();
                             pacman.setFill(new ImagePattern(pacman.pacmanRight));
                         }
                         break;
@@ -213,7 +246,6 @@ public class GameManager {
                             pacman.setCenterY(pacman.getCenterY() - step);
                             checkCookieCoalition(pacman, "y");
                             checkGhostCoalition();
-                            checkSpriteOutsideMap();
                             pacman.setFill(new ImagePattern(pacman.pacmanUp));
                         }
                         break;
@@ -222,7 +254,6 @@ public class GameManager {
                             pacman.setCenterY(pacman.getCenterY() + step);
                             checkCookieCoalition(pacman, "y");
                             checkGhostCoalition();
-                            checkSpriteOutsideMap();
                             pacman.setFill(new ImagePattern(pacman.pacmanDown));
                         }
                         break;

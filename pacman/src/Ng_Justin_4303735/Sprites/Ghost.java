@@ -209,6 +209,7 @@ public class Ghost extends Rectangle implements Runnable {
             public void handle(long currentNanoTime)
             {
                 gameManager.checkGhostCoalition();
+                gameManager.checkSpriteOutsideMap();
                 double leftEdge = getX();
                 double topEdge = getY();
                 double rightEdge = getX() + getWidth();

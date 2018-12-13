@@ -1,7 +1,5 @@
 package Ng_Justin_4303735.Board;
 
-
-
 import Ng_Justin_4303735.Managers.SettingsManager;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
