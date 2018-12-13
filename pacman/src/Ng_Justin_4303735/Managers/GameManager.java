@@ -12,6 +12,7 @@ import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 
 import java.util.HashSet;
@@ -166,7 +167,51 @@ public class GameManager {
      * @param direction - passes the direction through to the method
      */
     private AnimationTimer createAnimation(String direction) {
-        return pacman.createAnimation(direction, maze, pacman, this);
+        double step = 5;
+        return new AnimationTimer()
+        {
+            public void handle(long currentNanoTime)
+            {
+                switch (direction) {
+                    case "left":
+                        if (!maze.isTouching(pacman.getCenterX() - pacman.getRadius(), pacman.getCenterY(), 15)) {
+                            pacman.setCenterX(pacman.getCenterX() - step);
+                            checkCookieCoalition(pacman, "x");
+                            checkGhostCoalition();
+                            checkSpriteOutsideMap();
+                            pacman.setFill(new ImagePattern(pacman.pacmanLeft));
+                        }
+                        break;
+                    case "right":
+                        if (!maze.isTouching(pacman.getCenterX() + pacman.getRadius(), pacman.getCenterY(), 15)) {
+                            pacman.setCenterX(pacman.getCenterX() + step);
+                            checkCookieCoalition(pacman, "x");
+                            checkGhostCoalition();
+                            checkSpriteOutsideMap();
+                            pacman.setFill(new ImagePattern(pacman.pacmanRight));
+                        }
+                        break;
+                    case "up":
+                        if (!maze.isTouching(pacman.getCenterX(), pacman.getCenterY() - pacman.getRadius(), 15)) {
+                            pacman.setCenterY(pacman.getCenterY() - step);
+                            checkCookieCoalition(pacman, "y");
+                            checkGhostCoalition();
+                            checkSpriteOutsideMap();
+                            pacman.setFill(new ImagePattern(pacman.pacmanUp));
+                        }
+                        break;
+                    case "down":
+                        if (!maze.isTouching(pacman.getCenterX(), pacman.getCenterY() + pacman.getRadius(), 15)) {
+                            pacman.setCenterY(pacman.getCenterY() + step);
+                            checkCookieCoalition(pacman, "y");
+                            checkGhostCoalition();
+                            checkSpriteOutsideMap();
+                            pacman.setFill(new ImagePattern(pacman.pacmanDown));
+                        }
+                        break;
+                }
+            }
+        };
     }
 
     /**
@@ -289,8 +334,10 @@ public class GameManager {
      */
     public void checkGhostCoalition() {
         collisionDetect.checkGhostCoalition(pacman, ghosts, this);
+    }
+
+    public void checkSpriteOutsideMap() {
         collisionDetect.checkPacmanOutsideMap(pacman, this);
         collisionDetect.checkGhostOutsideMap(ghosts, this);
     }
-
 }

@@ -17,30 +17,29 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class SettingsManager {
+    private Label settingsLabel = new Label("SETTINGS");
 
-    //Image settingsImage = new Image("file:resc/img/menu.png",false);
-    //ImageView settingsImageView = new ImageView(menuImage);
+    private Label difficultyLabel = new Label("DIFFICULTY");
+    private String[] difficultyArr = new String[]{"EASY", "NORMAL", "HARD", "WTF"};
+    private int difficultyIndex = 1;
+    private Button difficultyButton = new Button(difficultyArr[difficultyIndex]);
+    private HBox difficultyBox = new HBox();
 
-    Label settingsLabel = new Label("SETTINGS");
+    private Label bgCLabel = new Label("BOARD COLOUR");
+    private String[] bgCArr = new String[]{"WHITE", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE", "BLACK"};
+    private int bgCIndex = 7;
+    private Button bgCButton = new Button(bgCArr[bgCIndex]);
+    private HBox bgCBox = new HBox();
 
-    Label difficultyLabel = new Label("DIFFICULTY");
-    String[] difficultyArr = new String[]{"EASY", "NORMAL", "HARD", "WTF"};
-    Button difficultyButton = new Button(difficultyArr[1]);
-    HBox difficultyBox = new HBox();
+    private Label fgCLabel = new Label("WALL COLOUR");
+    private String[] fgCArr = new String[]{"WHITE", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE", "BLACK"};
+    private int fgCIndex = 0;
+    private Button fgCButton = new Button(fgCArr[fgCIndex]);
+    private HBox fgCBox = new HBox();
 
-    Label bgCLabel = new Label("BOARD COLOUR");
-    String[] bgCArr = new String[]{"WHITE", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE", "BLACK"};
-    Button bgCButton = new Button(bgCArr[7]);
-    HBox bgCBox = new HBox();
+    private Button returnButton = new Button("RETURN");
 
-    Label fgCLabel = new Label("WALL COLOUR");
-    String[] fgCArr = new String[]{"WHITE", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE", "BLACK"};
-    Button fgCButton = new Button(fgCArr[0]);
-    HBox fgCBox = new HBox();
-
-    Button returnButton = new Button("RETURN");
-
-    VBox settingsBox = new VBox();
+    private VBox settingsBox = new VBox();
 
     MenuManager menuManager;
     /**
@@ -140,7 +139,6 @@ public class SettingsManager {
      * @param scene
      * @param stage
      */
-
     public void initEventHandlers(Scene scene, Scene menuScene, Stage stage) {
         stage.widthProperty().addListener((obs, oldVal, newVal) -> {
             if (oldVal != newVal){
@@ -156,13 +154,46 @@ public class SettingsManager {
 
         returnButton.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(returnButton, scene));
         returnButton.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(returnButton, scene));
-
         returnButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             stage.setTitle("Pacman");
             stage.setScene(menuScene);
         });
+
+        difficultyButton.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(difficultyButton, scene));
+        difficultyButton.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(difficultyButton, scene));
+        difficultyButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.onSettingClick(difficultyButton, scene));
+
+        bgCButton.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(bgCButton, scene));
+        bgCButton.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(bgCButton, scene));
+        bgCButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.onSettingClick(bgCButton, scene));
+
+        fgCButton.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(fgCButton, scene));
+        fgCButton.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(fgCButton, scene));
+        fgCButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.onSettingClick(fgCButton, scene));
     }
 
+    /**
+     * Event handler to increment index and set text to new text in array
+     * @author Justin Ng
+     *
+     * @param button
+     * @param scene
+     */
+    public void onSettingClick(Button button, Scene scene){
+        if (button == difficultyButton){
+            incrementIndex(difficultyIndex, difficultyArr, "difficulty");
+            button.setText(difficultyArr[difficultyIndex]);
+        }
+        if (button == bgCButton){
+            incrementIndex(bgCIndex, bgCArr, "bgC");
+            button.setText(bgCArr[bgCIndex]);
+        }
+        if (button == fgCButton){
+            incrementIndex(fgCIndex, fgCArr, "fgC");
+            button.setText(fgCArr[fgCIndex]);
+        }
+
+    }
     public void onMouseEnterButton(Button button, Scene scene){
         button.setScaleX(1.25);
         button.setScaleY(1.25);
@@ -172,5 +203,62 @@ public class SettingsManager {
         button.setScaleX(1);
         button.setScaleY(1);
         scene.setCursor(Cursor.DEFAULT);
+    }
+
+    /**
+     * Increments index of array passed
+     * @author Justin Ng
+     *
+     * @param arr - Array passed through used to check if index is less than total length of the array
+     * @param i - Current value of the index
+     * @param type - Name of value to be changed
+     */
+    public void incrementIndex(int i, String[] arr, String type){
+        if (i >= arr.length - 1){
+            if (type == "difficulty"){
+                difficultyIndex = 0;
+            }
+            if (type == "bgC"){
+                bgCIndex = 0;
+            }
+            if (type == "fgC"){
+                fgCIndex = 0;
+            }
+        } else {
+            if (type == "difficulty"){
+                difficultyIndex++;
+            }
+            if (type == "bgC"){
+                bgCIndex++;
+            }
+            if (type == "fgC"){
+                fgCIndex++;
+            }
+        }
+    }
+
+    /**
+     * Getter to return setting value as string
+     *
+     * @return - returns a string containing the difficulty setting
+     */
+    public String getDifficultySettings(){
+        return difficultyButton.getText();
+    }
+    /**
+     * Getter to return setting value as string
+     *
+     * @return - returns a string containing the background colour setting
+     */
+    public String getbgCSetting(){
+        return bgCButton.getText();
+    }
+    /**
+     * Getter to return setting value as string
+     *
+     * @return - returns a string containing the foreground colour setting
+     */
+    public String getfgCSetting(){
+        return fgCButton.getText();
     }
 }
