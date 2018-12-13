@@ -40,9 +40,9 @@ public class GameManager {
     /**
      * Constructor
      */
-    public GameManager(Group root) {
+    public GameManager(Group root, SettingsManager settingsManager) {
         this.root = root;
-        this.maze = new Maze();
+        this.maze = new Maze(settingsManager);
         this.pacman = new Pacman(2.5 * BarObstacle.THICKNESS, 2.5 * BarObstacle.THICKNESS);
         this.cookieSet = new HashSet<>();
         this.ghosts = new HashSet<>();

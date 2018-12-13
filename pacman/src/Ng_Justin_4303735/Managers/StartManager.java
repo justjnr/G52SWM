@@ -19,9 +19,7 @@ public class StartManager {
      * @param canvas
      */
     public StartManager(Stage stage, Scene scene, Group group, Canvas canvas){
-        GameManager gameManager = new GameManager(group);
-        gameInit(stage, scene, group, canvas, gameManager);
-        initEventHandlers(scene, gameManager, stage);
+        gameInit(stage, scene, group, canvas);
     }
     /**
      * Initialise the game scene
@@ -29,11 +27,14 @@ public class StartManager {
      *
      * @param stage - passes the stage in as a parameter
      */
-    public void gameInit(Stage stage, Scene scene, Group group, Canvas canvas, GameManager gameManager){
-        stage.setTitle("Pacman");
-        stage.setScene(scene);
+    public void gameInit(Stage stage, Scene scene, Group group, Canvas canvas){
         scene.setFill(Color.BLACK);
+        group.getChildren().add(canvas);
+    }
 
+    public void initView(Stage stage, Scene gameScene, Group group, SettingsManager settingsManager){
+        stage.setTitle("Pacman");
+        stage.setScene(gameScene);
         stage.setHeight(800);
         stage.setWidth(1225);
         //stage.sizeToScene();
@@ -43,10 +44,11 @@ public class StartManager {
         stage.setMaxWidth(stage.getWidth());
         stage.setMaxHeight(stage.getHeight());
 
-        group.getChildren().add(canvas);
+        GameManager gameManager = new GameManager(group, settingsManager);
         gameManager.drawBoard();
-    }
 
+        initEventHandlers(gameScene, gameManager, stage);
+    }
     /**
      * Initialises event listener to detect key press events
      * @author Justin Ng

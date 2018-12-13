@@ -2,6 +2,7 @@ package Ng_Justin_4303735.Board;
 
 
 
+import Ng_Justin_4303735.Managers.SettingsManager;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -16,7 +17,7 @@ public class BarObstacle extends Rectangle {
      * @param orientation - horizontal or vertical
      * @param length - the length of the bar (1 == 100px)
      */
-    public BarObstacle(double x, double y, String orientation, double length) {
+    public BarObstacle(double x, double y, String orientation, double length, SettingsManager settingsManager) {
         this.setX(x);
         this.setY(y);
         if (orientation.equals("horizontal")) {
@@ -26,7 +27,10 @@ public class BarObstacle extends Rectangle {
             this.setHeight(length * BarObstacle.THICKNESS);
             this.setWidth(BarObstacle.THICKNESS);
         }
-        this.setFill(Color.DARKBLUE);
+        String c = settingsManager.getfgCSetting();
+        Color colourSetting = Color.web(c);
+        this.setFill(colourSetting);
+
         //this.setIconImage(Toolkit.getDefaultToolkit().getImage("/ghost1.png"));
         this.setStrokeWidth(3);
     }

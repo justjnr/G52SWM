@@ -32,30 +32,28 @@ public class SettingsManager {
     private HBox bgCBox = new HBox();
 
     private Label fgCLabel = new Label("WALL COLOUR");
-    private String[] fgCArr = new String[]{"WHITE", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE", "BLACK"};
-    private int fgCIndex = 0;
+    private String[] fgCArr = new String[]{"WHITE", "RED", "ORANGE", "YELLOW", "GREEN", "DARKBLUE", "PURPLE", "BLACK"};
+    private int fgCIndex = 5;
     private Button fgCButton = new Button(fgCArr[fgCIndex]);
     private HBox fgCBox = new HBox();
 
     private Button returnButton = new Button("RETURN");
 
     private VBox settingsBox = new VBox();
-
-    MenuManager menuManager;
     /**
      * Constructor for this class
      * @author Justin Ng
      *
      * @param stage
-     * @param scene
+     * @param settingsScene
      * @param group
      * @param canvas
      */
-    public SettingsManager(Stage stage, Scene scene, Scene menuScene, Group group, Canvas canvas, Font titleFont, Font menuFont){
-        stage.setTitle("Pacman - Settings");
-        stage.setScene(scene);
-        scene.setFill(Color.BLACK);
+    public SettingsManager(Stage stage, Scene settingsScene, Scene menuScene, Group group, Canvas canvas, Font titleFont, Font menuFont){
+        initSettings(stage, settingsScene, menuScene, group, canvas, titleFont, menuFont);
+    }
 
+    public void initSettings(Stage stage, Scene settingsScene, Scene menuScene, Group group, Canvas canvas, Font titleFont, Font menuFont){
         settingsLabel.setTextFill(Color.SKYBLUE);
         settingsLabel.setFont(titleFont);
         settingsLabel.setTextAlignment(TextAlignment.CENTER);
@@ -120,15 +118,21 @@ public class SettingsManager {
         group.getChildren().add(canvas);
         group.getChildren().add(settingsBox);
         //group.getChildren().add(buttonBox);
+        initEventHandlers(settingsScene, menuScene, stage);
+    }
 
-        initEventHandlers(scene, menuScene, stage);
+    public void initView(Stage stage, Scene settingsScene){
+        stage.setTitle("Pacman - Settings");
+        settingsScene.setFill(Color.BLACK);
+        stage.setScene(settingsScene);
 
         stage.sizeToScene();
         stage.show();
         stage.setMinWidth(stage.getWidth());
         stage.setMinHeight(stage.getHeight());
 
-        settingsBox.setPrefSize(scene.getWidth(), scene.getHeight());
+        settingsBox.setPrefSize(1280, 720);
+        //settingsBox.setMinSize(stage.getWidth(), 0);
     }
 
     /**
@@ -248,7 +252,7 @@ public class SettingsManager {
     /**
      * Getter to return setting value as string
      *
-     * @return - returns a string containing the background colour setting
+     * @return - returns a string containing the background board colour setting
      */
     public String getbgCSetting(){
         return bgCButton.getText();
@@ -256,7 +260,7 @@ public class SettingsManager {
     /**
      * Getter to return setting value as string
      *
-     * @return - returns a string containing the foreground colour setting
+     * @return - returns a string containing the foreground wall colour setting
      */
     public String getfgCSetting(){
         return fgCButton.getText();

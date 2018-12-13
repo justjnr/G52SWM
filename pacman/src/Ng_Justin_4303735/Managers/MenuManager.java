@@ -23,28 +23,19 @@ public class MenuManager {
     public Button highScore;
     public Button exit;
 
-    Font menuFont = Font.loadFont("file:resc/font/snnn.ttf", 16);
-    Font titleFont = Font.loadFont("file:resc/font/snnn.ttf", 72);
-
-    Group menuGroup = new Group();
-
-    Scene menuScene = new Scene(menuGroup);
-
     HBox buttonBox = new HBox();
     HBox imageBox = new HBox();
-
-    Canvas canvas = new Canvas(1280, 720);
 
     Image menuImage = new Image("file:resc/img/menu.png",false);
     ImageView menuImageView = new ImageView(menuImage);
     /**
      * Initialise the menu scene
      */
-    public MenuManager(Stage stage){
+    public MenuManager(Stage stage, Group menuGroup, Scene menuScene, Scene settingsScene, Font menuFont, Canvas canvas, SettingsManager settingsManager, StartManager startManager, Scene gameScene, Group gameGroup){
         stage.setTitle("Pacman");
         stage.setScene(menuScene);
-
         menuScene.setFill(Color.BLACK);
+
         menuImageView.setFitHeight(720);
         menuImageView.setFitWidth(1280);
         menuImageView.setPreserveRatio(true);
@@ -87,7 +78,7 @@ public class MenuManager {
         menuGroup.getChildren().add(imageBox);
         menuGroup.getChildren().add(buttonBox);
 
-        initEventHandlers(menuScene, stage);
+        initEventHandlers(menuScene, settingsScene, stage, settingsManager, startManager, gameScene, gameGroup);
     }
 
     /**
@@ -97,7 +88,7 @@ public class MenuManager {
      * @param scene
      * @param stage
      */
-    public void initEventHandlers(Scene scene, Stage stage){
+    public void initEventHandlers(Scene scene, Scene settingsScene, Stage stage, SettingsManager settingsManager, StartManager startManager, Scene gameScene, Group gameGroup){
         stage.widthProperty().addListener((obs, oldVal, newVal) -> {
             if (oldVal != newVal){
                 buttonBox.setMinSize(scene.getWidth(), 0);
@@ -115,10 +106,7 @@ public class MenuManager {
         start.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(start, scene));
 
         start.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Group gameGroup = new Group();
-            Scene gameScene = new Scene(gameGroup);
-
-            new StartManager(stage, gameScene, gameGroup, canvas);
+            startManager.initView(stage, gameScene, gameGroup, settingsManager);
         });
 
         exit.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(exit, scene));
@@ -132,10 +120,7 @@ public class MenuManager {
         settings.addEventHandler(MouseEvent.MOUSE_EXITED, event -> this.onMouseExitButton(settings, scene));
 
         settings.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Group settingsGroup = new Group();
-            Scene settingsScene = new Scene(settingsGroup);
-
-            new SettingsManager(stage, settingsScene, menuScene, settingsGroup, canvas, titleFont, menuFont);
+            settingsManager.initView(stage, settingsScene);
         });
 
         highScore.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> this.onMouseEnterButton(highScore, scene));
