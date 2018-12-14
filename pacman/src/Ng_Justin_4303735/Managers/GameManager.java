@@ -2,7 +2,6 @@ package Ng_Justin_4303735.Managers;
 
 import Ng_Justin_4303735.Board.BarObstacle;
 import Ng_Justin_4303735.Board.Maze;
-import Ng_Justin_4303735.Score;
 import Ng_Justin_4303735.Sprites.Cookie;
 import Ng_Justin_4303735.Sprites.Ghost;
 import Ng_Justin_4303735.Sprites.Pacman;
@@ -13,7 +12,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.text.Font;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -26,7 +24,7 @@ public class GameManager {
     private Pacman pacman;
     private Group root;
     private Maze maze;
-    private Score scoreBoard;
+    private GameUIManager gameUIManagerBoard;
     private Set<Cookie> cookieSet;
     private Set<Ghost> ghosts;
     private AnimationTimer leftPacmanAnimation;
@@ -43,7 +41,10 @@ public class GameManager {
     SettingsManager settingsManagerTemp;
 
     /**
-     * Constructor
+     * Constructor to initialise the game
+     *
+     * @param root - current group to be used
+     * @param settingsManager - instance of settingsManager passed through
      */
     public GameManager(Group root, SettingsManager settingsManager) {
         settingsManagerTemp = settingsManager;
@@ -63,7 +64,7 @@ public class GameManager {
     }
 
     /**
-     * Set one life less
+     * Method that stops pacman animation and sets text in label
      */
     private void lifeLost() {
         this.leftPacmanAnimation.stop();
@@ -79,13 +80,16 @@ public class GameManager {
         if (score >= 10){
             score -= 10;
         }
-        this.scoreBoard.lifesLabel.setText("Lifes: " + this.lifes);
-        this.scoreBoard.scoreLabel.setText("Score: " + this.score);
+        this.gameUIManagerBoard.lifesLabel.setText("Lifes: " + this.lifes);
+        this.gameUIManagerBoard.scoreLabel.setText("Score: " + this.score);
         if (lifes == 0) {
             this.endGame();
         }
     }
 
+    /**
+     * Setter to set life lost
+     */
     public void setLifeLost(){
         lifeLost();
     }
@@ -99,24 +103,38 @@ public class GameManager {
         for (Ghost ghost : ghosts) {
             root.getChildren().remove(ghost);
         }
-        javafx.scene.text.Text endGame = new javafx.scene.text.Text("Game Over, press ESC to restart");
+        /*javafx.scene.text.Text endGame = new javafx.scene.text.Text("Game Over, press ESC to restart");
         endGame.setX(BarObstacle.THICKNESS * 3);
         endGame.setY(BarObstacle.THICKNESS * 28);
         endGame.setFont(Font.font("Arial", 40));
-        endGame.setFill(Color.ROYALBLUE);
-        root.getChildren().remove(this.scoreBoard.scoreLabel);
-        root.getChildren().remove(this.scoreBoard.lifesLabel);
-        root.getChildren().add(endGame);
-
+        endGame.setFill(Color.ROYALBLUE);*/
+        root.getChildren().remove(this.gameUIManagerBoard.scoreLabel);
+        root.getChildren().remove(this.gameUIManagerBoard.lifesLabel);
+        //root.getChildren().add(endGame);
         outHighscore();
+        gameUIManagerBoard.generatePopupBox(score, root);
     }
 
+    /**
+     * Outputs high score to a text file
+     * @author Justin Ng
+     */
     public void outHighscore(){
         try(FileWriter fWriter = new FileWriter("highscores.txt", true);
             BufferedWriter bWriter = new BufferedWriter(fWriter);
             PrintWriter pWriter = new PrintWriter(bWriter))
         {
-            pWriter.println(score + "     " + settingsManagerTemp.getDifficultySettings());
+            pWriter.println(score);
+
+        } catch (IOException e) {
+            System.out.print(e);
+        }
+
+        try(FileWriter fWriter = new FileWriter("highscorediff.txt", true);
+            BufferedWriter bWriter = new BufferedWriter(fWriter);
+            PrintWriter pWriter = new PrintWriter(bWriter))
+        {
+            pWriter.println(settingsManagerTemp.getDifficultySettings());
 
         } catch (IOException e) {
             System.out.print(e);
@@ -125,13 +143,16 @@ public class GameManager {
 
     /**
      * Restart the game
-     * @param event
+     *
+     * @param event - key event details passed to method
      */
     public void restartGame(KeyEvent event) {
         if (event.getCode() == KeyCode.ESCAPE && gameEnded) {
+            gameUIManagerBoard.removePopupBox(root);
             root.getChildren().clear();
             this.cookieSet.clear();
             this.ghosts.clear();
+            generateGhosts(settingsManagerTemp);
             this.drawBoard();
             this.pacman.setCenterX(2.5 * BarObstacle.THICKNESS);
             this.pacman.setCenterY(2.5 * BarObstacle.THICKNESS);
@@ -143,7 +164,7 @@ public class GameManager {
     }
 
     /**
-     * Returns maze from the GameManager Class
+     * getter to return maze from the GameManager Class
      *
      * @return - returns maze as type Maze
      */
@@ -155,11 +176,13 @@ public class GameManager {
      * Calls drawBoard method in boardManager to draw game board
      */
     public void drawBoard() {
-        boardManager.drawBoard(root, ghosts, pacman, scoreBoard, this);
+        boardManager.drawBoard(root, ghosts, pacman, this);
     }
 
     /**
      * Generates the ghosts for the pacman!
+     *
+     * @param settingsManager - instance of SettingsManager
      */
     public void generateGhosts(SettingsManager settingsManager) {
         if (settingsManager.getDifficultySettings() == "NORMAL"){
@@ -215,6 +238,8 @@ public class GameManager {
     /**
      * Animates the pacman in whichever direction its going in
      * @param direction - passes the direction through to the method
+     *
+     * @return - returns the new AnimationTimer
      */
     private AnimationTimer createAnimation(String direction) {
         double step = 5;
@@ -227,16 +252,21 @@ public class GameManager {
                     case "left":
                         if (!maze.isTouching(pacman.getCenterX() - pacman.getRadius(), pacman.getCenterY(), 15)) {
                             pacman.setCenterX(pacman.getCenterX() - step);
-                            checkCookieCoalition(pacman, "x");
+                            if (checkCookieCoalition(pacman, "x")){
+                                this.stop();
+                                endGame();
+                            }
                             checkGhostCoalition();
-
                             pacman.setFill(new ImagePattern(pacman.pacmanLeft));
                         }
                         break;
                     case "right":
                         if (!maze.isTouching(pacman.getCenterX() + pacman.getRadius(), pacman.getCenterY(), 15)) {
                             pacman.setCenterX(pacman.getCenterX() + step);
-                            checkCookieCoalition(pacman, "x");
+                            if (checkCookieCoalition(pacman, "x")){
+                                this.stop();
+                                endGame();
+                            }
                             checkGhostCoalition();
                             pacman.setFill(new ImagePattern(pacman.pacmanRight));
                         }
@@ -244,7 +274,10 @@ public class GameManager {
                     case "up":
                         if (!maze.isTouching(pacman.getCenterX(), pacman.getCenterY() - pacman.getRadius(), 15)) {
                             pacman.setCenterY(pacman.getCenterY() - step);
-                            checkCookieCoalition(pacman, "y");
+                            if (checkCookieCoalition(pacman, "y")){
+                                this.stop();
+                                endGame();
+                            }
                             checkGhostCoalition();
                             pacman.setFill(new ImagePattern(pacman.pacmanUp));
                         }
@@ -252,7 +285,10 @@ public class GameManager {
                     case "down":
                         if (!maze.isTouching(pacman.getCenterX(), pacman.getCenterY() + pacman.getRadius(), 15)) {
                             pacman.setCenterY(pacman.getCenterY() + step);
-                            checkCookieCoalition(pacman, "y");
+                            if (checkCookieCoalition(pacman, "y")){
+                                this.stop();
+                                endGame();
+                            }
                             checkGhostCoalition();
                             pacman.setFill(new ImagePattern(pacman.pacmanDown));
                         }
@@ -265,7 +301,7 @@ public class GameManager {
     /**
      * Stops Pacman animation
      *
-     * @return - returns cookiesEaten variable as an integer
+     * @param p - direction passed
      */
     public void stopPacmanAnimation(String p){
         if (p == "right"){
@@ -285,7 +321,7 @@ public class GameManager {
     /**
      * Starts Pacman animation
      *
-     * @return - returns cookiesEaten variable as an integer
+     * @param p - direction passed
      */
     public void startPacmanAnimation(String p){
         if (p == "right"){
@@ -321,7 +357,7 @@ public class GameManager {
     /**
      * Getter to get cookieSet as it is a private variable
      *
-     * @return - returns cookieSet as Set<Cookie> type
+     * @return - returns cookie set as Set type
      */
     public Set<Cookie> getCookieSet(){
         return this.cookieSet;
@@ -330,7 +366,7 @@ public class GameManager {
     /**
      * Getter to get ghosts as it is a private variable
      *
-     * @return - returns ghosts as Set<Ghost> type
+     * @return - returns ghosts as Set type
      */
     public Set<Ghost> getGhosts(){
         return this.ghosts;
@@ -346,19 +382,19 @@ public class GameManager {
     }
 
     /**
-     * Getter to get scoreBoard as it is a private variable
+     * Getter to get gameUIManagerBoard as it is a private variable
      *
-     * @return - returns scoreBoard variable as type Score
+     * @return - returns gameUIManagerBoard variable as type GameUIManager
      */
-    public Score getScoreBoard(){
-        return this.scoreBoard;
+    public GameUIManager getGameUIManagerBoard(){
+        return this.gameUIManagerBoard;
     }
 
     /**
-     * Creates a new score in scoreBoard
+     * Creates a new score in gameUIManagerBoard
      */
     public void createNewScore(){
-         this.scoreBoard = new Score(root);
+         this.gameUIManagerBoard = new GameUIManager(root);
     }
 
     /**
@@ -372,9 +408,17 @@ public class GameManager {
 
     /**
      * Calls checkCookieCoalition in CollisionDetect class
+     *
+     * @param axis - axis pacman is on
+     * @param pacman - pacman to be passed through to check cookie coalition
+     *
+     * @return - returns true or false depending on whether it is touching
      */
-    public void checkCookieCoalition(Pacman pacman, String axis) {
-        collisionDetect.checkCookieCoalition(pacman, axis, cookieSet, this);
+    public boolean checkCookieCoalition(Pacman pacman, String axis) {
+        if (collisionDetect.checkCookieCoalition(pacman, axis, cookieSet, this)){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -384,6 +428,10 @@ public class GameManager {
         collisionDetect.checkGhostCoalition(pacman, ghosts, this);
     }
 
+    /**
+     * calls collision detect methods to check whether the sprites are outside map
+     * @author Justin Ng
+     */
     public void checkSpriteOutsideMap() {
         collisionDetect.checkPacmanOutsideMap(pacman, this);
         collisionDetect.checkGhostOutsideMap(ghosts, this);

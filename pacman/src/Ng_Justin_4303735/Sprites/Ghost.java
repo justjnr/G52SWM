@@ -1,7 +1,5 @@
 package Ng_Justin_4303735.Sprites;
 
-
-
 import Ng_Justin_4303735.Managers.GameManager;
 import Ng_Justin_4303735.Board.Maze;
 import javafx.animation.AnimationTimer;
@@ -12,7 +10,6 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
-
 public class Ghost extends Rectangle implements Runnable {
 
     String direction;
@@ -21,8 +18,8 @@ public class Ghost extends Rectangle implements Runnable {
     AnimationTimer animation;
     int timesWalked;
 
-    /** Load ghost sprite files
-     *
+    /**
+     * Load ghost sprite files for each direction
      */
     Image ghostGreenRight = new Image("file:resc/img/ghost1_right.png",false);
     Image ghostGreenLeft = new Image("file:resc/img/ghost1_left.png",false);
@@ -49,6 +46,15 @@ public class Ghost extends Rectangle implements Runnable {
     Image ghostPurpleUp = new Image("file:resc/img/ghost5_up.png",false);
     Image ghostPurpleDown = new Image("file:resc/img/ghost5_down.png",false);
 
+    /**
+     * Constructor to initialise ghost properties
+     *
+     * @param x - x position of ghost
+     * @param y - y position of ghost
+     * @param color - colour to set the ghost to
+     * @param maze - maze passed to be set
+     * @param gameManager - instance of GameManager to call methods from
+     */
     public Ghost(double x, double y, Color color, Maze maze, GameManager gameManager) {
         this.setX(x);
         this.setY(y);
@@ -77,6 +83,13 @@ public class Ghost extends Rectangle implements Runnable {
         }
     }
 
+    /**
+     * gets random direction which passes two parameters in
+     *
+     * @param exclude1 - excludes this direction parameter
+     * @param exclude2 - excludes this direction parameter
+     * @return - returns random direction
+     */
     private String getRandomDirection(String exclude1, String exclude2) {
         String[] directions = {"left", "right", "up", "down"};
         int rnd = new Random().nextInt(directions.length);
@@ -86,22 +99,18 @@ public class Ghost extends Rectangle implements Runnable {
         return directions[rnd];
     }
 
-    private boolean getRandomBoolean() {
-        Random rand = new Random();
-        return rand.nextBoolean();
-    }
-
     /**
      * Gets the animation for the ghost
-     * @return
+     * @return - returns animation as animationTimer
      */
     public AnimationTimer getAnimation() {
         return animation;
     }
 
     /**
+     * Checks if ghost has path to go to
      *
-     * @param direction
+     * @param direction - direction in which the ghost is travelling
      */
     private void checkIftheresPathToGo(String direction) {
         double rightEdge, leftEdge, topEdge, bottomEdge;
@@ -143,14 +152,15 @@ public class Ghost extends Rectangle implements Runnable {
     }
 
     /**
+     * Moves ghost until an object is detected
      *
-     * @param whereToGo
-     * @param whereToChangeTo
-     * @param leftEdge
-     * @param topEdge
-     * @param rightEdge
-     * @param bottomEdge
-     * @param padding
+     * @param whereToGo - direction in which the ghost is travelling
+     * @param whereToChangeTo - new direction to change to
+     * @param leftEdge - left edge of maze
+     * @param topEdge - top edge of maze
+     * @param rightEdge - right edge of maze
+     * @param bottomEdge - bottom edge of maze
+     * @param padding - padding of ghost
      */
     private void moveUntilYouCant(String whereToGo, String whereToChangeTo, double leftEdge, double topEdge, double rightEdge, double bottomEdge, double padding) {
         double step = 5;
@@ -201,6 +211,9 @@ public class Ghost extends Rectangle implements Runnable {
 
     /**
      * Creates an animation of the ghost
+     *
+     * @param color - ghost colour to be passed in
+     * @param ghost - ghost to be passed in
      */
     public void createAnimation(Color color, Ghost ghost) {
 
@@ -255,6 +268,14 @@ public class Ghost extends Rectangle implements Runnable {
         };
     }
 
+    /**
+     * Change the ghost image depending on direction and colour of the ghost
+     * @author Justin Ng
+     *
+     * @param direction - direction of the ghost
+     * @param color - colour of the ghost
+     * @param ghost - ghost passed through to be acted on
+     */
     public void changeGhostImage(String direction, Color color, Ghost ghost){
         if (direction == "left"){
             if (color == Color.GREEN){

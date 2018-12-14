@@ -8,29 +8,36 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class StartManager {
-
     /**
-     * Constructor for this class
+     * Constructor for this class which calls gameInit
      * @author Justin Ng
      *
-     * @param stage - passes the stage from MenuManager
-     * @param scene - passes the scene created from MenuManager
-     * @param group
-     * @param canvas
+     * @param group - group to be passed in
+     * @param canvas group to be passed in
      */
-    public StartManager(Stage stage, Scene scene, Group group, Canvas canvas, SettingsManager settingsManager){
-        gameInit(stage, scene, group, canvas, settingsManager);
+    public StartManager(Group group, Canvas canvas){
+        gameInit(group, canvas);
     }
     /**
      * Initialise the game scene
      * @author Justin Ng
      *
-     * @param stage - passes the stage in as a parameter
+     * @param group - group to be passed in
+     * @param canvas - group to be passed in
      */
-    public void gameInit(Stage stage, Scene scene, Group group, Canvas canvas, SettingsManager settingsManager){
+    private void gameInit(Group group, Canvas canvas){
         group.getChildren().add(canvas);
     }
 
+    /**
+     * Initialises the view for the scene and sets it to the current stage
+     * @author Justin Ng
+     *
+     * @param stage - current stage to be acted on
+     * @param gameScene - game scene passed for event handling
+     * @param group - group to be passed into the new instance of GameManager
+     * @param settingsManager - instance of settingsManager to be passed into GameManager
+     */
     public void initView(Stage stage, Scene gameScene, Group group, SettingsManager settingsManager){
         stage.setTitle("Pacman");
         stage.setScene(gameScene);
@@ -46,21 +53,21 @@ public class StartManager {
         String c = settingsManager.getbgCSetting();
         Color colourSetting = Color.web(c);
         gameScene.setFill(colourSetting);
-        System.out.print(colourSetting);
 
         GameManager gameManager = new GameManager(group, settingsManager);
         gameManager.drawBoard();
 
-        initEventHandlers(gameScene, gameManager, stage);
+        initEventHandlers(gameScene, gameManager);
     }
     /**
-     * Initialises event listener to detect key press events
+     * Initialises event listener to detect key press events for the game
+     * Binds methods from gameManager to the event handler
      * @author Justin Ng
      *
-     * @param scene
-     * @param stage
+     * @param scene - scene to add event handler to
+     * @param gameManager - instance of gameManager to use to invoke methods from that class
      */
-    public void initEventHandlers(Scene scene, GameManager gameManager, Stage stage) {
+    private void initEventHandlers(Scene scene, GameManager gameManager) {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, event -> gameManager.movePacman(event));
         scene.addEventHandler(KeyEvent.KEY_RELEASED, event -> gameManager.stopPacman(event));
         scene.addEventHandler(KeyEvent.KEY_PRESSED, event -> gameManager.restartGame(event));

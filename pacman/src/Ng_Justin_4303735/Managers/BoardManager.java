@@ -1,7 +1,6 @@
 package Ng_Justin_4303735.Managers;
 
 import Ng_Justin_4303735.Board.BarObstacle;
-import Ng_Justin_4303735.Score;
 import Ng_Justin_4303735.Sprites.Cookie;
 import Ng_Justin_4303735.Sprites.Ghost;
 import Ng_Justin_4303735.Sprites.Pacman;
@@ -13,8 +12,13 @@ import java.util.Set;
 public class BoardManager {
     /**
      * Draws the board of the game with the cookies and the Pacman
+     *
+     * @param root - current group to be used
+     * @param ghosts - ghosts added to group
+     * @param pacman - pacman added to group
+     * @param gameManager - instance of game manager to access methods from
      */
-    public void drawBoard(Group root, Set<Ghost> ghosts, Pacman pacman, Score scoreboard, GameManager gameManager) {
+    public void drawBoard(Group root, Set<Ghost> ghosts, Pacman pacman, GameManager gameManager) {
         gameManager.getMaze().CreateMaze(root);
         // 1st line
         Integer skip[] = {5, 17};
@@ -126,6 +130,7 @@ public class BoardManager {
             }
         }
         root.getChildren().add(pacman);
+        //gameManager.generateGhosts();
         root.getChildren().addAll(ghosts);
         gameManager.createNewScore();
     }

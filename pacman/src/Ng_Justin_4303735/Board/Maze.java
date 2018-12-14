@@ -17,9 +17,11 @@ public class Maze {
 
     /**
      * Checks if point is touching obstacles
-     * @param x
-     * @param y
-     * @return
+     *
+     * @param x - x position of obstacle
+     * @param y - y position of obstacle
+     * @param padding - padding of the entity passed through
+     * @return - returns boolean as to whether its touching
      */
     public Boolean isTouching(double x, double y, double padding) {
         for (BarObstacle barObstacle:obstacles) {
@@ -37,11 +39,12 @@ public class Maze {
 
     /**
      * lets you know if there's an obstacle in the current coordinate
-     * @param fromX
-     * @param toX
-     * @param fromY
-     * @param toY
-     * @return
+     *
+     * @param fromX - previous X value
+     * @param toX - next X value
+     * @param fromY - previous Y value
+     * @param toY - next Y value
+     * @return - returns boolean as to whether its touching
      */
     public Boolean hasObstacle(double fromX,  double toX, double fromY, double toY) {
         boolean isTouching = false;
@@ -55,7 +58,8 @@ public class Maze {
 
     /**
      * Draws the maze
-     * @param root
+     *
+     * @param root - current group to add all obstacles to
      */
     public void CreateMaze(Group root) {
         //~~~~~~~~~~~~~~~~~~~~~~~~~ frame ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

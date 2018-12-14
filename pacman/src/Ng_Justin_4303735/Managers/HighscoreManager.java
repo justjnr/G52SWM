@@ -24,27 +24,41 @@ import java.util.stream.Stream;
 
 public class HighscoreManager {
     private Label highscoresLabel = new Label("HIGHSCORES");
-
     private VBox highscoresBox = new VBox();
-
     private Button returnButton = new Button("RETURN");
     private Font menuFontTemp;
     private int maxHighscores;
+
     /**
+     * Constructor to initialise highscore including calling the init method
+     * @author Justin Ng
      *
-     * @param stage
-     * @param highscoreScene
-     * @param highscoreGroup
-     * @param canvas
-     * @param titleFont
-     * @param menuFont
+     * @param stage - active stage to be used
+     * @param highscoreScene - high score scene to pass to initHighscore
+     * @param menuScene - menu scene to pass through to initHighscore
+     * @param highscoreGroup - high score group to pass to initHighscore
+     * @param canvas - canvas element to pass to initHighScore
+     * @param titleFont - larger titlefont used for the heading
+     * @param menuFont - current menufont used by some ui elements
      */
     public HighscoreManager(Stage stage, Scene highscoreScene, Scene menuScene, Group highscoreGroup, Canvas canvas, Font titleFont, Font menuFont){
         menuFontTemp = menuFont;
         initHighscore(stage, highscoreScene, menuScene, highscoreGroup, canvas, menuFont, titleFont);
     }
 
-    public void initHighscore(Stage stage, Scene highscoreScene, Scene menuScene, Group group, Canvas canvas, Font menuFont, Font titleFont){
+    /**
+     * Initialises high score screen to create UI
+     * @author Justin Ng
+     *
+     * @param stage - active stage to be used
+     * @param highscoreScene - high score scene to pass to initEventHandlers
+     * @param menuScene - menu scene to pass to initEventHandlers
+     * @param group - active group to add ui elements to
+     * @param canvas - canvas element to add to group
+     * @param menuFont - current menufont used by some ui elements
+     * @param titleFont - larger titlefont used for the heading
+     */
+    private void initHighscore(Stage stage, Scene highscoreScene, Scene menuScene, Group group, Canvas canvas, Font menuFont, Font titleFont){
         highscoresLabel.setTextFill(Color.CORAL);
         highscoresLabel.setFont(titleFont);
         highscoresLabel.setTextAlignment(TextAlignment.CENTER);
@@ -68,6 +82,13 @@ public class HighscoreManager {
         initEventHandlers(highscoreScene, menuScene, stage);
     }
 
+    /**
+     * Initialises the high score view by setting it to the stage and setting size of window
+     * @author Justin Ng
+     *
+     * @param stage - active stage to be used
+     * @param highscoreScene - high score scene to be set to stage
+     */
     public void initView(Stage stage, Scene highscoreScene){
         stage.setTitle("Pacman - Highscores");
         highscoreScene.setFill(Color.BLACK);
@@ -85,11 +106,11 @@ public class HighscoreManager {
      * Initialises event listener to detect when window is resized and sets text position relative to window and detects button mouseover / mouseenter
      * @author Justin Ng
      *
-     * @param menuScene
-     * @param scene
-     * @param stage
+     * @param menuScene - the menu scene to return back to from the highscore screen
+     * @param scene - the current high score scene
+     * @param stage - the active stage to attach scenes to
      */
-    public void initEventHandlers(Scene scene, Scene menuScene, Stage stage) {
+    private void initEventHandlers(Scene scene, Scene menuScene, Stage stage) {
         stage.widthProperty().addListener((obs, oldVal, newVal) -> {
             if (oldVal != newVal){
                 highscoresBox.setPrefSize(scene.getWidth(), scene.getHeight());
@@ -111,18 +132,39 @@ public class HighscoreManager {
         });
     }
 
-    public void onMouseEnterButton(Button button, Scene scene){
+    /**
+     * Methods to scale button and change mouse cursor on mouse enter / leave
+     * @author Justin Ng
+     *
+     * @param button - button element to act on
+     * @param scene - scene to change cursor for
+     */
+    private void onMouseEnterButton(Button button, Scene scene){
         button.setScaleX(1.25);
         button.setScaleY(1.25);
         scene.setCursor(Cursor.HAND);
     }
-    public void onMouseExitButton(Button button, Scene scene){
+    /**
+     * Methods to scale button and change mouse cursor on mouse enter / leave
+     * @author Justin Ng
+     *
+     * @param button - button element to act on
+     * @param scene - scene to change cursor for
+     */
+    private void onMouseExitButton(Button button, Scene scene){
         button.setScaleX(1);
         button.setScaleY(1);
         scene.setCursor(Cursor.DEFAULT);
     }
 
-    public void getHighscores(Font titleFont){
+    /**
+     * Retrieves high scores from text file and sorts them through reverse order. For every line in the  high scores file,
+     * call generatehighscores function to print out labels
+     * @author Justin Ng
+     *
+     * @param titleFont - Passes the font to be used for generateHighScores
+     */
+    private void getHighscores(Font titleFont){
         //for each line in text file, create HBox with pair of labels
         //make sure VBox containing can scroll if height greater than stage
         Path highscoreFile = Paths.get("highscores.txt");
@@ -134,10 +176,17 @@ public class HighscoreManager {
         }
     }
 
-    public void generateHighscores(String line, Font titleFont){
+    /**
+     * Creates new labels for each line and adds to highscoresbox up to maxHighscores
+     * @author Justin Ng
+     *
+     * @param titleFont - Passes the font to be used for generateHighScores
+     * @param line - the line to generate label for
+     */
+    private void generateHighscores(String line, Font titleFont){
         if (maxHighscores < 5) {
-            System.out.println(line);
-            Label label = new Label(line);
+            System.out.println(maxHighscores + 1 + "-   " + line);
+            Label label = new Label(maxHighscores + 1 + "-   " + line);
 
             label.setTextFill(Color.WHITE);
             label.setFont(titleFont);

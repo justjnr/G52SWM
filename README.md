@@ -23,6 +23,7 @@ Repository for Coursework 2
 - Added ability to change difficulty of game
 
 - Added permanent high scores
+- High scores only show top 5 in file
 
 - Added ability to return to main menu from settings, highscore & game
 

@@ -14,6 +14,7 @@ public class BarObstacle extends Rectangle {
      * @param y - Position on the Y axis
      * @param orientation - horizontal or vertical
      * @param length - the length of the bar (1 == 100px)
+     * @param settingsManager - instance of SettingsManager passed through
      */
     public BarObstacle(double x, double y, String orientation, double length, SettingsManager settingsManager) {
         this.setX(x);

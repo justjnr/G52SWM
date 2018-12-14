@@ -10,9 +10,9 @@ import java.util.Set;
 public class CollisionDetect {
     /**
      * Checks if pacman is touching a ghost
-     * @param pacman -
-     * @param ghosts -
-     * @param gameManager -
+     * @param pacman - pacman to be passed through to enact methods upon
+     * @param ghosts - ghosts to be passed through to enact methods upon
+     * @param gameManager - instance of gameManager to call methods
      */
     public void checkGhostCoalition(Pacman pacman, Set<Ghost> ghosts, GameManager gameManager) {
         double pacmanCenterY = pacman.getCenterY();
@@ -79,10 +79,15 @@ public class CollisionDetect {
 
     /**
      * Checks if the Pacman touches cookies.
+     *
      * @param pacman - pacman to be passed through
-     * @param axis
+     * @param axis - used to check the axis of the cookie
+     * @param cookieSet - used to manipulate cookie
+     * @param gameManager - used to enact methods upon an instance of Game Manager
+     *
+     * @return - returns boolean value as to whether the cookie is touching
      */
-    public void checkCookieCoalition(Pacman pacman, String axis, Set<Cookie> cookieSet, GameManager gameManager) {
+    public boolean checkCookieCoalition(Pacman pacman, String axis, Set<Cookie> cookieSet, GameManager gameManager) {
         double pacmanCenterY = pacman.getCenterY();
         double pacmanCenterX = pacman.getCenterX();
         double pacmanLeftEdge = pacmanCenterX - pacman.getRadius();
@@ -131,10 +136,12 @@ public class CollisionDetect {
                     cookie.hide();
                 }
             }
-            gameManager.getScoreBoard().scoreLabel.setText("Score: " + gameManager.getScore());
+
+            gameManager.getGameUIManagerBoard().scoreLabel.setText("Score: " + gameManager.getScore());
             if (gameManager.getCookiesEaten() == gameManager.getCookieSet().size()) {
-                gameManager.endGame();
+                return true;
             }
         }
+        return false;
     }
 }
