@@ -10,6 +10,9 @@ import java.util.Set;
 public class CollisionDetect {
     /**
      * Checks if pacman is touching a ghost
+     * @param pacman - pacman to be passed through to enact methods upon
+     * @param ghosts - ghosts to be passed through to enact methods upon
+     * @param gameManager - instance of gameManager to call methods
      */
     public void checkGhostCoalition(Pacman pacman, Set<Ghost> ghosts, GameManager gameManager) {
         double pacmanCenterY = pacman.getCenterY();
@@ -32,11 +35,59 @@ public class CollisionDetect {
     }
 
     /**
-     * Checks if the Pacman touches cookies.
-     * @param pacman
-     * @param axis
+     * Checks if Pacman is outside map through openings and is teleported to the opposite side of the map
+     * @author Justin Ng
+     *
+     * @param pacman - pacman to be passed through
+     * @param gameManager - game manager instance passed through
      */
-    public void checkCookieCoalition(Pacman pacman, String axis, Set<Cookie> cookieSet, GameManager gameManager) {
+    public void checkPacmanOutsideMap(Pacman pacman, GameManager gameManager) {
+        double pacmanLeftEdge = pacman.getCenterX() - pacman.getRadius();
+        double pacmanRightEdge = pacman.getCenterX() + pacman.getRadius();
+        //System.out.print(pacmanRightEdge + "Right Edge\n");
+        //System.out.print(pacmanLeftEdge + "Left Edge\n");
+
+        if (pacmanLeftEdge > 1225){
+            //System.out.print("Outside Map\n");
+            pacman.setCenterX(0);
+        }
+        if (pacmanRightEdge < 0){
+            //System.out.print("Outside Map\n");
+            pacman.setCenterX(1225);
+        }
+    }
+
+    /**
+     * Checks if Ghost is outside map through openings and is teleported to the opposite side of the map
+     * @author Justin Ng
+     *
+     * @param ghosts - ghosts to be passed through
+     * @param gameManager - game manager instance passed through
+     */
+    public void checkGhostOutsideMap(Set<Ghost> ghosts, GameManager gameManager) {
+        for (Ghost ghost : ghosts) {
+            double ghostLeftEdge = ghost.getX();
+            double ghostRightEdge = ghost.getX() + ghost.getWidth();
+            if (ghostLeftEdge > 1225){
+                ghost.setX(0);
+            }
+            if (ghostRightEdge < 0){
+                ghost.setX(1225);
+            }
+        }
+    }
+
+    /**
+     * Checks if the Pacman touches cookies.
+     *
+     * @param pacman - pacman to be passed through
+     * @param axis - used to check the axis of the cookie
+     * @param cookieSet - used to manipulate cookie
+     * @param gameManager - used to enact methods upon an instance of Game Manager
+     *
+     * @return - returns boolean value as to whether the cookie is touching
+     */
+    public boolean checkCookieCoalition(Pacman pacman, String axis, Set<Cookie> cookieSet, GameManager gameManager) {
         double pacmanCenterY = pacman.getCenterY();
         double pacmanCenterX = pacman.getCenterX();
         double pacmanLeftEdge = pacmanCenterX - pacman.getRadius();
@@ -85,10 +136,12 @@ public class CollisionDetect {
                     cookie.hide();
                 }
             }
-            gameManager.getScoreBoard().score.setText("Score: " + gameManager.getScore());
+
+            gameManager.getGameUIManagerBoard().scoreLabel.setText("Score: " + gameManager.getScore());
             if (gameManager.getCookiesEaten() == gameManager.getCookieSet().size()) {
-                gameManager.endGame();
+                return true;
             }
         }
+        return false;
     }
 }
