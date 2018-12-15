@@ -12,11 +12,11 @@ public class Main extends Application {
      * @param stage - The Stage to be used for the game
      */
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage){
         new ViewManager(stage);
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-}
+} 

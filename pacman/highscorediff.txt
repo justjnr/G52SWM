@@ -1,1 +1,3 @@
 NORMAL
+HARD
+EASY

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/highscorediff.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscorediff.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java" afterDir="false" />
+    </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -342,10 +346,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
+                <element signature="e#479#480#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -499,9 +505,9 @@
         <option value="$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/MenuManager.java" />
         <option value="$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/GameManager.java" />
         <option value="$PROJECT_DIR$/src/Ng_Justin_4303735/Sprites/Pacman.java" />
-        <option value="$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java" />
         <option value="$PROJECT_DIR$/src/Ng_Justin_4303735/Board/BarObstacle.java" />
         <option value="$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/GameUIManager.java" />
+        <option value="$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java" />
       </list>
     </option>
   </component>
@@ -591,7 +597,7 @@
     <property name="SearchEverywhereHistoryKey" value="Color.BLACK&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544908050341" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544908680280" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="recentsLimit" value="5" />
@@ -708,18 +714,18 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1544803611443" duration="270000" />
       <workItem from="1544803930094" duration="807000" />
-      <workItem from="1544804766952" duration="12001000" />
+      <workItem from="1544804766952" duration="13159000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14380000" />
+    <option name="totallyTimeSpent" value="15538000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1679" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.30116066" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.30116066" />
       <window_info id="Structure" order="1" weight="0.25305623" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -728,7 +734,7 @@
       <window_info id="Favorites" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.28586388" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14331551" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14331551" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1184,10 +1190,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="285">
+          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
           </folding>
         </state>
       </provider>
