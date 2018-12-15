@@ -36,9 +36,9 @@ public class GameManager {
     private boolean gameEnded;
     private int cookiesEaten;
 
-    CollisionDetect collisionDetect = new CollisionDetect();
-    BoardManager boardManager = new BoardManager();
-    SettingsManager settingsManagerTemp;
+    private CollisionDetect collisionDetect = new CollisionDetect();
+    private BoardManager boardManager = new BoardManager();
+    private SettingsManager settingsManagerTemp;
 
     /**
      * Constructor to initialise the game
@@ -97,7 +97,7 @@ public class GameManager {
     /**
      * Ends the game
      */
-    public void endGame() {
+    private void endGame() {
         this.gameEnded = true;
         root.getChildren().remove(pacman);
         for (Ghost ghost : ghosts) {
@@ -119,7 +119,7 @@ public class GameManager {
      * Outputs high score to a text file
      * @author Justin Ng
      */
-    public void outHighscore(){
+    private void outHighscore(){
         try(FileWriter fWriter = new FileWriter("highscores.txt", true);
             BufferedWriter bWriter = new BufferedWriter(fWriter);
             PrintWriter pWriter = new PrintWriter(bWriter))
@@ -184,7 +184,7 @@ public class GameManager {
      *
      * @param settingsManager - instance of SettingsManager
      */
-    public void generateGhosts(SettingsManager settingsManager) {
+    private void generateGhosts(SettingsManager settingsManager) {
         if (settingsManager.getDifficultySettings() == "NORMAL"){
             this.ghosts.add(new Ghost(19.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.DEEPPINK, maze, this));
             this.ghosts.add(new Ghost(23.5 * BarObstacle.THICKNESS, 12.5 * BarObstacle.THICKNESS, Color.LIGHTSKYBLUE, maze, this));

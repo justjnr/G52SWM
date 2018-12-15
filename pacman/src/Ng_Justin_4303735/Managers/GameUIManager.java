@@ -15,11 +15,11 @@ public class GameUIManager {
     public Label scoreLabel = new Label( "Score: 0");
     public Label lifesLabel = new Label("Lifes: 3");
 
-    public Label returnLabel = new Label("RETURN");
-    public HBox scoreBox = new HBox();
-    public VBox popupBox = new VBox();
-    Font gameFont = Font.loadFont("file:resc/font/snnn.ttf", 16);
-    Font popupFont = Font.loadFont("file:resc/font/snnn.ttf", 60);
+    private Label returnLabel = new Label("RETURN");
+    private HBox scoreBox = new HBox();
+    private VBox popupBox = new VBox();
+    private Font gameFont = Font.loadFont("file:resc/font/snnn.ttf", 16);
+    private Font popupFont = Font.loadFont("file:resc/font/snnn.ttf", 60);
 
     /**
      * Constructor responsible for generating UI elements on the game scene

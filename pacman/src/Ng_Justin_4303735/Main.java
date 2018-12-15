@@ -1,6 +1,5 @@
 package Ng_Justin_4303735;
 
-import Ng_Justin_4303735.Managers.MenuManager;
 import Ng_Justin_4303735.Managers.ViewManager;
 import javafx.application.Application;
 import javafx.stage.Stage;

@@ -17,16 +17,16 @@ import javafx.stage.Stage;
 
 public class MenuManager {
 
-    public Button start;
-    public Button settings;
-    public Button highScore;
-    public Button exit;
+    private Button start;
+    private Button settings;
+    private Button highScore;
+    private Button exit;
 
-    HBox buttonBox = new HBox();
-    HBox imageBox = new HBox();
+    private HBox buttonBox = new HBox();
+    private HBox imageBox = new HBox();
 
-    Image menuImage = new Image("file:resc/img/menu.png",false);
-    ImageView menuImageView = new ImageView(menuImage);
+    private Image menuImage = new Image("file:resc/img/menu.png",false);
+    private ImageView menuImageView = new ImageView(menuImage);
 
     /**
      * Constructor that initialises the menu scene

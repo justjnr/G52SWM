@@ -11,28 +11,28 @@ public class ViewManager {
     /**
      * Load custom fonts
      */
-    Font menuFont = Font.loadFont("file:resc/font/snnn.ttf", 16);
-    Font titleFont = Font.loadFont("file:resc/font/snnn.ttf", 72);
+    private Font menuFont = Font.loadFont("file:resc/font/snnn.ttf", 16);
+    private Font titleFont = Font.loadFont("file:resc/font/snnn.ttf", 72);
 
     /**
      * Create new groups and scenes for each manager
      */
-    Group menuGroup = new Group();
-    Scene menuScene = new Scene(menuGroup);
+    private Group menuGroup = new Group();
+    private Scene menuScene = new Scene(menuGroup);
 
-    Group gameGroup = new Group();
-    Scene gameScene = new Scene(gameGroup);
+    private Group gameGroup = new Group();
+    private Scene gameScene = new Scene(gameGroup);
 
-    Group settingsGroup = new Group();
-    Scene settingsScene = new Scene(settingsGroup);
+    private Group settingsGroup = new Group();
+    private Scene settingsScene = new Scene(settingsGroup);
 
-    Group highscoreGroup = new Group();
-    Scene highscoreScene = new Scene(highscoreGroup);
+    private Group highscoreGroup = new Group();
+    private Scene highscoreScene = new Scene(highscoreGroup);
 
-    Canvas canvas = new Canvas(1280, 720);
-    SettingsManager settingsManager;
-    StartManager startManager;
-    HighscoreManager highscoreManager;
+    private Canvas canvas = new Canvas(1280, 720);
+    private SettingsManager settingsManager;
+    private StartManager startManager;
+    private HighscoreManager highscoreManager;
 
     /**
      * Constructor to start initialising all scenes

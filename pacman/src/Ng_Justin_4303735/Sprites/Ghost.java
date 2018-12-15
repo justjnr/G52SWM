@@ -12,39 +12,39 @@ import java.util.Random;
 
 public class Ghost extends Rectangle implements Runnable {
 
-    String direction;
-    GameManager gameManager;
-    Maze maze;
-    AnimationTimer animation;
-    int timesWalked;
+    private String direction;
+    private GameManager gameManager;
+    private Maze maze;
+    private AnimationTimer animation;
+    private int timesWalked;
 
     /**
      * Load ghost sprite files for each direction
      */
-    Image ghostGreenRight = new Image("file:resc/img/ghost1_right.png",false);
-    Image ghostGreenLeft = new Image("file:resc/img/ghost1_left.png",false);
-    Image ghostGreenUp = new Image("file:resc/img/ghost1_up.png",false);
-    Image ghostGreenDown = new Image("file:resc/img/ghost1_down.png",false);
+    private Image ghostGreenRight = new Image("file:resc/img/ghost1_right.png",false);
+    private Image ghostGreenLeft = new Image("file:resc/img/ghost1_left.png",false);
+    private Image ghostGreenUp = new Image("file:resc/img/ghost1_up.png",false);
+    private Image ghostGreenDown = new Image("file:resc/img/ghost1_down.png",false);
 
-    Image ghostBlueRight = new Image("file:resc/img/ghost2_right.png",false);
-    Image ghostBlueLeft = new Image("file:resc/img/ghost2_left.png",false);
-    Image ghostBlueUp = new Image("file:resc/img/ghost2_up.png",false);
-    Image ghostBlueDown = new Image("file:resc/img/ghost2_down.png",false);
+    private Image ghostBlueRight = new Image("file:resc/img/ghost2_right.png",false);
+    private Image ghostBlueLeft = new Image("file:resc/img/ghost2_left.png",false);
+    private Image ghostBlueUp = new Image("file:resc/img/ghost2_up.png",false);
+    private Image ghostBlueDown = new Image("file:resc/img/ghost2_down.png",false);
 
-    Image ghostPinkRight = new Image("file:resc/img/ghost3_right.png",false);
-    Image ghostPinkLeft = new Image("file:resc/img/ghost3_left.png",false);
-    Image ghostPinkUp = new Image("file:resc/img/ghost3_up.png",false);
-    Image ghostPinkDown = new Image("file:resc/img/ghost3_down.png",false);
+    private Image ghostPinkRight = new Image("file:resc/img/ghost3_right.png",false);
+    private Image ghostPinkLeft = new Image("file:resc/img/ghost3_left.png",false);
+    private Image ghostPinkUp = new Image("file:resc/img/ghost3_up.png",false);
+    private Image ghostPinkDown = new Image("file:resc/img/ghost3_down.png",false);
 
-    Image ghostYellowRight = new Image("file:resc/img/ghost4_right.png",false);
-    Image ghostYellowLeft = new Image("file:resc/img/ghost4_left.png",false);
-    Image ghostYellowUp = new Image("file:resc/img/ghost4_up.png",false);
-    Image ghostYellowDown = new Image("file:resc/img/ghost4_down.png",false);
+    private Image ghostYellowRight = new Image("file:resc/img/ghost4_right.png",false);
+    private Image ghostYellowLeft = new Image("file:resc/img/ghost4_left.png",false);
+    private Image ghostYellowUp = new Image("file:resc/img/ghost4_up.png",false);
+    private Image ghostYellowDown = new Image("file:resc/img/ghost4_down.png",false);
 
-    Image ghostPurpleRight = new Image("file:resc/img/ghost5_right.png",false);
-    Image ghostPurpleLeft = new Image("file:resc/img/ghost5_left.png",false);
-    Image ghostPurpleUp = new Image("file:resc/img/ghost5_up.png",false);
-    Image ghostPurpleDown = new Image("file:resc/img/ghost5_down.png",false);
+    private Image ghostPurpleRight = new Image("file:resc/img/ghost5_right.png",false);
+    private Image ghostPurpleLeft = new Image("file:resc/img/ghost5_left.png",false);
+    private Image ghostPurpleUp = new Image("file:resc/img/ghost5_up.png",false);
+    private Image ghostPurpleDown = new Image("file:resc/img/ghost5_down.png",false);
 
     /**
      * Constructor to initialise ghost properties
