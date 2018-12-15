@@ -13,10 +13,7 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception{
-//      Parent rootGroup = FXMLLoader.load(getClass().getResource("pacman.fxml"));
         new ViewManager(stage);
-        //gameInit(theStage);
-        //stage = theStage;
     }
 
     public static void main(String[] args) {
