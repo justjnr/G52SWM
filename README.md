@@ -29,3 +29,6 @@ Tasked with creating a Pacman Game with refactored code & repackaged classes & a
 - Added doors in maze for pacman & ghost sprites to go through
 - Modified ghost generator to generate number of ghosts based off difficulty
 - Added a popup at the end of the game that shows the score the player got
+
+## 
+Resporitory for Archival Purposes, All Rights Reserved.
