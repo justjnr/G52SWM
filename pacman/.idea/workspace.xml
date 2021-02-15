@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/highscorediff.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscorediff.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java" afterDir="false" />
@@ -71,288 +72,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/Ng_Justin_4303735">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>Ng_Justin_4303735</OriginalElement>
-              <nodes>
-                <node x="1008.3002016600416" y="4276.0">Ng_Justin_4303735.Managers.ViewManager</node>
-                <node x="2609.1038403086277" y="2148.0">Ng_Justin_4303735.Managers.GameUIManager</node>
-                <node x="0.0" y="3554.0">Ng_Justin_4303735.Managers.HighscoreManager</node>
-                <node x="2216.2585349933747" y="3653.5">Ng_Justin_4303735.Managers.StartManager</node>
-                <node x="1067.3002016600417" y="4775.0">Ng_Justin_4303735.Main</node>
-                <node x="2242.324244018393" y="863.0">Ng_Justin_4303735.Board.Maze</node>
-                <node x="1223.0517155716632" y="1935.0">Ng_Justin_4303735.Sprites.Cookie</node>
-                <node x="2100.964743589743" y="1913.0">Ng_Justin_4303735.Sprites.Pacman</node>
-                <node x="1758.4230769230767" y="2215.0">Ng_Justin_4303735.ColDetect.CollisionDetect</node>
-                <node x="1289.4230769230767" y="2248.0">Ng_Justin_4303735.Managers.BoardManager</node>
-                <node x="2078.3742440183933" y="739.0">Ng_Justin_4303735.Board.BarObstacle</node>
-                <node x="2146.7585349933747" y="2549.0">Ng_Justin_4303735.Managers.GameManager</node>
-                <node x="254.8002016600417" y="3921.0">Ng_Justin_4303735.Managers.MenuManager</node>
-                <node x="911.001715571663" y="0.0">Ng_Justin_4303735.Managers.SettingsManager</node>
-                <node x="1944.8242440183933" y="1076.0">Ng_Justin_4303735.Sprites.Ghost</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="Ng_Justin_4303735.Main" target="Ng_Justin_4303735.Managers.ViewManager">
-                  <point x="0.0" y="-36.5" />
-                  <point x="0.0" y="224.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Board.BarObstacle" target="Ng_Justin_4303735.Managers.SettingsManager">
-                  <point x="0.0" y="-37.0" />
-                  <point x="2306.3742440183933" y="719.0" />
-                  <point x="1206.1683822383297" y="719.0" />
-                  <point x="53.66666666666674" y="334.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Sprites.Pacman">
-                  <point x="179.20000000000005" y="-25.5" />
-                  <point x="1692.623076923077" y="2128.0" />
-                  <point x="2129.5480769230767" y="2128.0" />
-                  <point x="-142.91666666666674" y="92.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Sprites.Cookie">
-                  <point x="-89.60000000000002" y="-25.5" />
-                  <point x="1423.8230769230768" y="2128.0" />
-                  <point x="1374.2517155716632" y="2128.0" />
-                  <point x="43.19999999999999" y="70.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.ViewManager" target="Ng_Justin_4303735.Managers.MenuManager">
-                  <point x="-43.14285714285711" y="-224.5" />
-                  <point x="1116.1573445171844" y="4236.0" />
-                  <point x="701.8002016600417" y="4236.0" />
-                  <point x="0.0" y="147.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Board.Maze" target="Ng_Justin_4303735.Board.BarObstacle">
-                  <point x="0.0" y="-81.5" />
-                  <point x="2442.324244018393" y="843.0" />
-                  <point x="2488.774244018393" y="843.0" />
-                  <point x="182.39999999999986" y="37.0" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Sprites.Ghost">
-                  <point x="75.30769230769238" y="-477.5" />
-                  <point x="2400.066227301067" y="2459.0" />
-                  <point x="2548.476715571663" y="2459.0" />
-                  <point x="2548.476715571663" y="1863.0" />
-                  <point x="2396.574244018393" y="1863.0" />
-                  <point x="173.75" y="378.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Sprites.Ghost">
-                  <point x="89.60000000000002" y="-25.5" />
-                  <point x="1603.0230769230768" y="2128.0" />
-                  <point x="1530.5610065466449" y="2128.0" />
-                  <point x="1530.5610065466449" y="1873.0" />
-                  <point x="1979.5742440183933" y="1873.0" />
-                  <point x="-243.25" y="378.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Board.BarObstacle">
-                  <point x="0.0" y="-25.5" />
-                  <point x="1513.4230769230767" y="2128.0" />
-                  <point x="1483.0730769230768" y="2128.0" />
-                  <point x="1483.0730769230768" y="843.0" />
-                  <point x="2215.1742440183934" y="843.0" />
-                  <point x="-91.20000000000005" y="37.0" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Managers.SettingsManager">
-                  <point x="-171.15384615384596" y="-477.5" />
-                  <point x="2153.604688839529" y="2529.0" />
-                  <point x="1181.3002016600417" y="2529.0" />
-                  <point x="1181.3002016600417" y="699.0" />
-                  <point x="1098.8350489049963" y="699.0" />
-                  <point x="-53.66666666666674" y="334.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.MenuManager" target="Ng_Justin_4303735.Managers.SettingsManager">
-                  <point x="0.0" y="-147.5" />
-                  <point x="701.8002016600416" y="719.0" />
-                  <point x="937.8350489049963" y="719.0" />
-                  <point x="-214.66666666666674" y="334.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Managers.BoardManager">
-                  <point x="-102.69230769230762" y="-477.5" />
-                  <point x="2222.066227301067" y="2479.0" />
-                  <point x="1364.0897435897434" y="2479.0" />
-                  <point x="-149.33333333333337" y="25.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Sprites.Pacman" target="Ng_Justin_4303735.Sprites.Ghost">
-                  <point x="0.0" y="-92.5" />
-                  <point x="2272.464743589743" y="1893.0" />
-                  <point x="2188.074244018393" y="1893.0" />
-                  <point x="-34.75" y="378.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.ColDetect.CollisionDetect">
-                  <point x="-34.230769230769056" y="-477.5" />
-                  <point x="2290.5277657626057" y="2429.0" />
-                  <point x="2027.4230769230767" y="2429.0" />
-                  <point x="0.0" y="58.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.StartManager" target="Ng_Justin_4303735.Managers.SettingsManager">
-                  <point x="131.66666666666674" y="-59.0" />
-                  <point x="2545.4252016600417" y="3529.0" />
-                  <point x="2908.6038403086277" y="3529.0" />
-                  <point x="2908.6038403086277" y="689.0" />
-                  <point x="1367.1683822383295" y="689.0" />
-                  <point x="214.66666666666652" y="334.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Board.Maze">
-                  <point x="116.38461538461547" y="-477.5" />
-                  <point x="2441.1431503779904" y="2489.0" />
-                  <point x="2587.6038403086277" y="2489.0" />
-                  <point x="2587.6038403086277" y="1046.0" />
-                  <point x="2522.324244018393" y="1046.0" />
-                  <point x="80.0" y="81.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Sprites.Pacman" target="Ng_Justin_4303735.Managers.GameManager">
-                  <point x="28.583333333333258" y="92.5" />
-                  <point x="2301.0480769230767" y="2118.0" />
-                  <point x="2324.13141025641" y="2118.0" />
-                  <point x="2324.13141025641" y="2529.0" />
-                  <point x="2331.6046888395285" y="2529.0" />
-                  <point x="6.846153846153811" y="-477.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Managers.GameManager">
-                  <point x="149.33333333333337" y="25.5" />
-                  <point x="1662.7564102564102" y="2459.0" />
-                  <point x="2249.450842685683" y="2459.0" />
-                  <point x="-75.30769230769215" y="-477.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Sprites.Pacman">
-                  <point x="34.23076923076928" y="-477.5" />
-                  <point x="2358.9893042241442" y="2509.0" />
-                  <point x="2346.13141025641" y="2509.0" />
-                  <point x="2346.13141025641" y="2128.0" />
-                  <point x="2415.38141025641" y="2128.0" />
-                  <point x="142.91666666666652" y="92.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Board.Maze" target="Ng_Justin_4303735.Managers.SettingsManager">
-                  <point x="160.0" y="-81.5" />
-                  <point x="2602.324244018393" y="843.0" />
-                  <point x="2743.851715571663" y="843.0" />
-                  <point x="2743.851715571663" y="699.0" />
-                  <point x="1313.5017155716628" y="699.0" />
-                  <point x="160.99999999999977" y="334.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.StartManager" target="Ng_Justin_4303735.Managers.GameManager">
-                  <point x="0.0" y="-59.0" />
-                  <point x="89.0" y="477.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Managers.GameUIManager">
-                  <point x="171.1538461538462" y="-477.5" />
-                  <point x="2495.912381147221" y="2529.0" />
-                  <point x="2849.937173641961" y="2529.0" />
-                  <point x="96.33333333333326" y="125.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.MenuManager" target="Ng_Justin_4303735.Managers.StartManager">
-                  <point x="298.0" y="-147.5" />
-                  <point x="999.8002016600417" y="3896.0" />
-                  <point x="2282.091868326708" y="3896.0" />
-                  <point x="-131.66666666666674" y="59.0" />
-                </edge>
-                <edge source="Ng_Justin_4303735.ColDetect.CollisionDetect" target="Ng_Justin_4303735.Sprites.Ghost">
-                  <point x="0.0" y="-58.5" />
-                  <point x="2027.4230769230767" y="1893.0" />
-                  <point x="2118.574244018393" y="1893.0" />
-                  <point x="-104.25" y="378.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.ViewManager" target="Ng_Justin_4303735.Managers.SettingsManager">
-                  <point x="0.0" y="-224.5" />
-                  <point x="1159.3002016600417" y="719.0" />
-                  <point x="991.501715571663" y="719.0" />
-                  <point x="-161.0" y="334.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.ColDetect.CollisionDetect" target="Ng_Justin_4303735.Sprites.Pacman">
-                  <point x="179.33333333333326" y="-58.5" />
-                  <point x="2206.75641025641" y="2128.0" />
-                  <point x="2186.714743589743" y="2128.0" />
-                  <point x="-85.75" y="92.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.ColDetect.CollisionDetect" target="Ng_Justin_4303735.Sprites.Cookie">
-                  <point x="-179.33333333333337" y="-58.5" />
-                  <point x="1848.0897435897434" y="2118.0" />
-                  <point x="1417.451715571663" y="2118.0" />
-                  <point x="86.39999999999998" y="70.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.MenuManager" target="Ng_Justin_4303735.Managers.HighscoreManager">
-                  <point x="-298.0" y="-147.5" />
-                  <point x="403.8002016600417" y="3896.0" />
-                  <point x="412.5" y="3896.0" />
-                  <point x="165.0" y="158.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Board.BarObstacle">
-                  <point x="-143.7692307692305" y="-477.5" />
-                  <point x="2180.9893042241442" y="2509.0" />
-                  <point x="1209.6730769230767" y="2509.0" />
-                  <point x="1209.6730769230767" y="833.0" />
-                  <point x="2123.974244018393" y="833.0" />
-                  <point x="-182.39999999999998" y="37.0" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Sprites.Ghost" target="Ng_Justin_4303735.Managers.GameManager">
-                  <point x="34.75" y="378.5" />
-                  <point x="2257.574244018393" y="1883.0" />
-                  <point x="2454.464743589743" y="1883.0" />
-                  <point x="2454.464743589743" y="2439.0" />
-                  <point x="2372.681611916452" y="2439.0" />
-                  <point x="47.923076923076906" y="-477.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.ColDetect.CollisionDetect" target="Ng_Justin_4303735.Managers.GameManager">
-                  <point x="179.33333333333348" y="58.5" />
-                  <point x="2206.75641025641" y="2419.0" />
-                  <point x="2304.2200734549133" y="2419.0" />
-                  <point x="-20.538461538461434" y="-477.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.ViewManager" target="Ng_Justin_4303735.Managers.HighscoreManager">
-                  <point x="-129.42857142857133" y="-224.5" />
-                  <point x="1029.8716302314701" y="4256.0" />
-                  <point x="233.3002016600417" y="4256.0" />
-                  <point x="233.3002016600417" y="3896.0" />
-                  <point x="82.5" y="3896.0" />
-                  <point x="-165.0" y="158.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.ViewManager" target="Ng_Justin_4303735.Managers.StartManager">
-                  <point x="129.42857142857133" y="-224.5" />
-                  <point x="1288.7287730886128" y="4256.0" />
-                  <point x="2485.091868326708" y="4256.0" />
-                  <point x="2485.091868326708" y="3896.0" />
-                  <point x="2545.4252016600412" y="3896.0" />
-                  <point x="131.66666666666652" y="59.0" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Sprites.Ghost" target="Ng_Justin_4303735.Board.Maze">
-                  <point x="-139.0" y="-378.5" />
-                  <point x="2083.824244018393" y="1056.0" />
-                  <point x="2282.324244018393" y="1056.0" />
-                  <point x="-160.0" y="81.5" />
-                </edge>
-                <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Sprites.Cookie">
-                  <point x="-116.38461538461524" y="-477.5" />
-                  <point x="2208.3739196087595" y="2489.0" />
-                  <point x="1258.3230769230768" y="2489.0" />
-                  <point x="1258.3230769230768" y="2128.0" />
-                  <point x="1287.8517155716631" y="2128.0" />
-                  <point x="-43.19999999999999" y="70.5" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.8222485604139376" x="973.8825420371413" y="1822.8825420371413" />
-              <SelectedNodes />
-              <Categories>
-                <Category>Methods</Category>
-                <Category>Fields</Category>
-                <Category>Constructors</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
+        <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#440#441#0" expanded="true" />
+                <element signature="e#478#479#0" expanded="true" />
+                <element signature="e#524#525#0" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/javafx.graphics/javafx/application/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#441#442#0" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="4725">
+              <caret line="350" column="25" selection-start-line="350" selection-start-column="25" selection-end-line="350" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -360,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2220">
+            <state relative-caret-position="1950">
               <caret line="150" column="30" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -372,7 +111,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/BoardManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="285">
               <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -390,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/ViewManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="13" column="73" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
+            <state relative-caret-position="-144">
+              <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -411,7 +150,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/StartManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
+            <state relative-caret-position="945">
               <caret line="72" column="72" selection-start-line="72" selection-start-column="72" selection-end-line="72" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -512,10 +251,9 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1425" />
+    <option name="width" value="1680" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -527,8 +265,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -597,9 +335,12 @@
     <property name="SearchEverywhereHistoryKey" value="Color.BLACK&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544908680280" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545161391459" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -714,18 +455,21 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1544803611443" duration="270000" />
       <workItem from="1544803930094" duration="807000" />
-      <workItem from="1544804766952" duration="13159000" />
+      <workItem from="1544804766952" duration="13679000" />
+      <workItem from="1545161060233" duration="360000" />
+      <workItem from="1545161428144" duration="110000" />
+      <workItem from="1545224433955" duration="147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15538000" />
+    <option name="totallyTimeSpent" value="16675000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="23" width="1679" height="1027" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.30116066" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.31135532" />
       <window_info id="Structure" order="1" weight="0.25305623" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -734,7 +478,7 @@
       <window_info id="Favorites" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.28586388" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14331551" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.14331551" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -768,17 +512,6 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/Ng_Justin_4303735/Board/BarObstacle.java</url>
-          <line>27</line>
-          <properties />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -824,12 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <element signature="e#4135#4136#0" expanded="true" />
-            <element signature="e#4167#4168#0" expanded="true" />
-            <element signature="e#13641#13642#0" expanded="true" />
-            <element signature="e#13679#13680#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -848,16 +575,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/ViewManager.java">
+    <entry file="uml://JAVA/Ng_Justin_4303735" />
+    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Board/Maze.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="13" column="73" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
+        <state relative-caret-position="270">
+          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/javafx.graphics/javafx/application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4725">
+          <caret line="350" column="25" selection-start-line="350" selection-start-column="25" selection-end-line="350" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="150" column="30" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/BoardManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Board/BarObstacle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/ColDetect/CollisionDetect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/StartManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
+        <state relative-caret-position="945">
           <caret line="72" column="72" selection-start-line="72" selection-start-column="72" selection-end-line="72" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -876,329 +659,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/GameManager.java">
+    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/ViewManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2220">
-          <caret line="150" column="30" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-144">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Managers/BoardManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/ColDetect/CollisionDetect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Board/BarObstacle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Board/Maze.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/Ng_Justin_4303735">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>Ng_Justin_4303735</OriginalElement>
-          <nodes>
-            <node x="1008.3002016600416" y="4276.0">Ng_Justin_4303735.Managers.ViewManager</node>
-            <node x="2609.1038403086277" y="2148.0">Ng_Justin_4303735.Managers.GameUIManager</node>
-            <node x="0.0" y="3554.0">Ng_Justin_4303735.Managers.HighscoreManager</node>
-            <node x="2216.2585349933747" y="3653.5">Ng_Justin_4303735.Managers.StartManager</node>
-            <node x="1067.3002016600417" y="4775.0">Ng_Justin_4303735.Main</node>
-            <node x="2242.324244018393" y="863.0">Ng_Justin_4303735.Board.Maze</node>
-            <node x="1223.0517155716632" y="1935.0">Ng_Justin_4303735.Sprites.Cookie</node>
-            <node x="2100.964743589743" y="1913.0">Ng_Justin_4303735.Sprites.Pacman</node>
-            <node x="1758.4230769230767" y="2215.0">Ng_Justin_4303735.ColDetect.CollisionDetect</node>
-            <node x="1289.4230769230767" y="2248.0">Ng_Justin_4303735.Managers.BoardManager</node>
-            <node x="2078.3742440183933" y="739.0">Ng_Justin_4303735.Board.BarObstacle</node>
-            <node x="2146.7585349933747" y="2549.0">Ng_Justin_4303735.Managers.GameManager</node>
-            <node x="254.8002016600417" y="3921.0">Ng_Justin_4303735.Managers.MenuManager</node>
-            <node x="911.001715571663" y="0.0">Ng_Justin_4303735.Managers.SettingsManager</node>
-            <node x="1944.8242440183933" y="1076.0">Ng_Justin_4303735.Sprites.Ghost</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="Ng_Justin_4303735.Main" target="Ng_Justin_4303735.Managers.ViewManager">
-              <point x="0.0" y="-36.5" />
-              <point x="0.0" y="224.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Board.BarObstacle" target="Ng_Justin_4303735.Managers.SettingsManager">
-              <point x="0.0" y="-37.0" />
-              <point x="2306.3742440183933" y="719.0" />
-              <point x="1206.1683822383297" y="719.0" />
-              <point x="53.66666666666674" y="334.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Sprites.Pacman">
-              <point x="179.20000000000005" y="-25.5" />
-              <point x="1692.623076923077" y="2128.0" />
-              <point x="2129.5480769230767" y="2128.0" />
-              <point x="-142.91666666666674" y="92.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Sprites.Cookie">
-              <point x="-89.60000000000002" y="-25.5" />
-              <point x="1423.8230769230768" y="2128.0" />
-              <point x="1374.2517155716632" y="2128.0" />
-              <point x="43.19999999999999" y="70.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.ViewManager" target="Ng_Justin_4303735.Managers.MenuManager">
-              <point x="-43.14285714285711" y="-224.5" />
-              <point x="1116.1573445171844" y="4236.0" />
-              <point x="701.8002016600417" y="4236.0" />
-              <point x="0.0" y="147.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Board.Maze" target="Ng_Justin_4303735.Board.BarObstacle">
-              <point x="0.0" y="-81.5" />
-              <point x="2442.324244018393" y="843.0" />
-              <point x="2488.774244018393" y="843.0" />
-              <point x="182.39999999999986" y="37.0" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Sprites.Ghost">
-              <point x="75.30769230769238" y="-477.5" />
-              <point x="2400.066227301067" y="2459.0" />
-              <point x="2548.476715571663" y="2459.0" />
-              <point x="2548.476715571663" y="1863.0" />
-              <point x="2396.574244018393" y="1863.0" />
-              <point x="173.75" y="378.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Sprites.Ghost">
-              <point x="89.60000000000002" y="-25.5" />
-              <point x="1603.0230769230768" y="2128.0" />
-              <point x="1530.5610065466449" y="2128.0" />
-              <point x="1530.5610065466449" y="1873.0" />
-              <point x="1979.5742440183933" y="1873.0" />
-              <point x="-243.25" y="378.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Board.BarObstacle">
-              <point x="0.0" y="-25.5" />
-              <point x="1513.4230769230767" y="2128.0" />
-              <point x="1483.0730769230768" y="2128.0" />
-              <point x="1483.0730769230768" y="843.0" />
-              <point x="2215.1742440183934" y="843.0" />
-              <point x="-91.20000000000005" y="37.0" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Managers.SettingsManager">
-              <point x="-171.15384615384596" y="-477.5" />
-              <point x="2153.604688839529" y="2529.0" />
-              <point x="1181.3002016600417" y="2529.0" />
-              <point x="1181.3002016600417" y="699.0" />
-              <point x="1098.8350489049963" y="699.0" />
-              <point x="-53.66666666666674" y="334.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.MenuManager" target="Ng_Justin_4303735.Managers.SettingsManager">
-              <point x="0.0" y="-147.5" />
-              <point x="701.8002016600416" y="719.0" />
-              <point x="937.8350489049963" y="719.0" />
-              <point x="-214.66666666666674" y="334.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Managers.BoardManager">
-              <point x="-102.69230769230762" y="-477.5" />
-              <point x="2222.066227301067" y="2479.0" />
-              <point x="1364.0897435897434" y="2479.0" />
-              <point x="-149.33333333333337" y="25.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Sprites.Pacman" target="Ng_Justin_4303735.Sprites.Ghost">
-              <point x="0.0" y="-92.5" />
-              <point x="2272.464743589743" y="1893.0" />
-              <point x="2188.074244018393" y="1893.0" />
-              <point x="-34.75" y="378.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.ColDetect.CollisionDetect">
-              <point x="-34.230769230769056" y="-477.5" />
-              <point x="2290.5277657626057" y="2429.0" />
-              <point x="2027.4230769230767" y="2429.0" />
-              <point x="0.0" y="58.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.StartManager" target="Ng_Justin_4303735.Managers.SettingsManager">
-              <point x="131.66666666666674" y="-59.0" />
-              <point x="2545.4252016600417" y="3529.0" />
-              <point x="2908.6038403086277" y="3529.0" />
-              <point x="2908.6038403086277" y="689.0" />
-              <point x="1367.1683822383295" y="689.0" />
-              <point x="214.66666666666652" y="334.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Board.Maze">
-              <point x="116.38461538461547" y="-477.5" />
-              <point x="2441.1431503779904" y="2489.0" />
-              <point x="2587.6038403086277" y="2489.0" />
-              <point x="2587.6038403086277" y="1046.0" />
-              <point x="2522.324244018393" y="1046.0" />
-              <point x="80.0" y="81.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Sprites.Pacman" target="Ng_Justin_4303735.Managers.GameManager">
-              <point x="28.583333333333258" y="92.5" />
-              <point x="2301.0480769230767" y="2118.0" />
-              <point x="2324.13141025641" y="2118.0" />
-              <point x="2324.13141025641" y="2529.0" />
-              <point x="2331.6046888395285" y="2529.0" />
-              <point x="6.846153846153811" y="-477.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.BoardManager" target="Ng_Justin_4303735.Managers.GameManager">
-              <point x="149.33333333333337" y="25.5" />
-              <point x="1662.7564102564102" y="2459.0" />
-              <point x="2249.450842685683" y="2459.0" />
-              <point x="-75.30769230769215" y="-477.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Sprites.Pacman">
-              <point x="34.23076923076928" y="-477.5" />
-              <point x="2358.9893042241442" y="2509.0" />
-              <point x="2346.13141025641" y="2509.0" />
-              <point x="2346.13141025641" y="2128.0" />
-              <point x="2415.38141025641" y="2128.0" />
-              <point x="142.91666666666652" y="92.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Board.Maze" target="Ng_Justin_4303735.Managers.SettingsManager">
-              <point x="160.0" y="-81.5" />
-              <point x="2602.324244018393" y="843.0" />
-              <point x="2743.851715571663" y="843.0" />
-              <point x="2743.851715571663" y="699.0" />
-              <point x="1313.5017155716628" y="699.0" />
-              <point x="160.99999999999977" y="334.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.StartManager" target="Ng_Justin_4303735.Managers.GameManager">
-              <point x="0.0" y="-59.0" />
-              <point x="89.0" y="477.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Managers.GameUIManager">
-              <point x="171.1538461538462" y="-477.5" />
-              <point x="2495.912381147221" y="2529.0" />
-              <point x="2849.937173641961" y="2529.0" />
-              <point x="96.33333333333326" y="125.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.MenuManager" target="Ng_Justin_4303735.Managers.StartManager">
-              <point x="298.0" y="-147.5" />
-              <point x="999.8002016600417" y="3896.0" />
-              <point x="2282.091868326708" y="3896.0" />
-              <point x="-131.66666666666674" y="59.0" />
-            </edge>
-            <edge source="Ng_Justin_4303735.ColDetect.CollisionDetect" target="Ng_Justin_4303735.Sprites.Ghost">
-              <point x="0.0" y="-58.5" />
-              <point x="2027.4230769230767" y="1893.0" />
-              <point x="2118.574244018393" y="1893.0" />
-              <point x="-104.25" y="378.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.ViewManager" target="Ng_Justin_4303735.Managers.SettingsManager">
-              <point x="0.0" y="-224.5" />
-              <point x="1159.3002016600417" y="719.0" />
-              <point x="991.501715571663" y="719.0" />
-              <point x="-161.0" y="334.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.ColDetect.CollisionDetect" target="Ng_Justin_4303735.Sprites.Pacman">
-              <point x="179.33333333333326" y="-58.5" />
-              <point x="2206.75641025641" y="2128.0" />
-              <point x="2186.714743589743" y="2128.0" />
-              <point x="-85.75" y="92.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.ColDetect.CollisionDetect" target="Ng_Justin_4303735.Sprites.Cookie">
-              <point x="-179.33333333333337" y="-58.5" />
-              <point x="1848.0897435897434" y="2118.0" />
-              <point x="1417.451715571663" y="2118.0" />
-              <point x="86.39999999999998" y="70.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.MenuManager" target="Ng_Justin_4303735.Managers.HighscoreManager">
-              <point x="-298.0" y="-147.5" />
-              <point x="403.8002016600417" y="3896.0" />
-              <point x="412.5" y="3896.0" />
-              <point x="165.0" y="158.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Board.BarObstacle">
-              <point x="-143.7692307692305" y="-477.5" />
-              <point x="2180.9893042241442" y="2509.0" />
-              <point x="1209.6730769230767" y="2509.0" />
-              <point x="1209.6730769230767" y="833.0" />
-              <point x="2123.974244018393" y="833.0" />
-              <point x="-182.39999999999998" y="37.0" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Sprites.Ghost" target="Ng_Justin_4303735.Managers.GameManager">
-              <point x="34.75" y="378.5" />
-              <point x="2257.574244018393" y="1883.0" />
-              <point x="2454.464743589743" y="1883.0" />
-              <point x="2454.464743589743" y="2439.0" />
-              <point x="2372.681611916452" y="2439.0" />
-              <point x="47.923076923076906" y="-477.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.ColDetect.CollisionDetect" target="Ng_Justin_4303735.Managers.GameManager">
-              <point x="179.33333333333348" y="58.5" />
-              <point x="2206.75641025641" y="2419.0" />
-              <point x="2304.2200734549133" y="2419.0" />
-              <point x="-20.538461538461434" y="-477.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.ViewManager" target="Ng_Justin_4303735.Managers.HighscoreManager">
-              <point x="-129.42857142857133" y="-224.5" />
-              <point x="1029.8716302314701" y="4256.0" />
-              <point x="233.3002016600417" y="4256.0" />
-              <point x="233.3002016600417" y="3896.0" />
-              <point x="82.5" y="3896.0" />
-              <point x="-165.0" y="158.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.ViewManager" target="Ng_Justin_4303735.Managers.StartManager">
-              <point x="129.42857142857133" y="-224.5" />
-              <point x="1288.7287730886128" y="4256.0" />
-              <point x="2485.091868326708" y="4256.0" />
-              <point x="2485.091868326708" y="3896.0" />
-              <point x="2545.4252016600412" y="3896.0" />
-              <point x="131.66666666666652" y="59.0" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Sprites.Ghost" target="Ng_Justin_4303735.Board.Maze">
-              <point x="-139.0" y="-378.5" />
-              <point x="2083.824244018393" y="1056.0" />
-              <point x="2282.324244018393" y="1056.0" />
-              <point x="-160.0" y="81.5" />
-            </edge>
-            <edge source="Ng_Justin_4303735.Managers.GameManager" target="Ng_Justin_4303735.Sprites.Cookie">
-              <point x="-116.38461538461524" y="-477.5" />
-              <point x="2208.3739196087595" y="2489.0" />
-              <point x="1258.3230769230768" y="2489.0" />
-              <point x="1258.3230769230768" y="2128.0" />
-              <point x="1287.8517155716631" y="2128.0" />
-              <point x="-43.19999999999999" y="70.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.8222485604139376" x="973.8825420371413" y="1822.8825420371413" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Methods</Category>
-            <Category>Fields</Category>
-            <Category>Constructors</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ng_Justin_4303735/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>9.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>pacman</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
